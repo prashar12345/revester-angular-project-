@@ -1,0 +1,204 @@
+<div class="main-layout " [ngClass]="{ isBig: isBig }">
+  
+  <div class="side1">
+    <!--   
+    <h1 class="header-text" (click)="getHeight()">
+     {{ filters.address | titlecase }}
+    </h1> -->
+    <div class="loadding text-center" *ngIf="loader">
+      <div class="hotel-div " *ngFor="let item of loaderData">
+        <div class="hotel-image shine">
+          <img src="/assets/img/homePlaceholder1.png" class="propertyPlaceholder opacity0" />
+        </div>
+        <div class="card-right-side">
+          <div class="head-div">
+            <div class="card-right-side-section1">
+              <span class="room-type shine"></span>
+            </div>
+            <span class="room-person shine"></span>
+            <!-- <div class="show-border"></div> -->
+            <div class="all-types" style="margin-top: 9px">
+              <span class="types shine"></span>
+              <span class="types shine"></span>
+              <span class="types shine"></span>
+            </div>
+
+            <p class="shine mt-2"></p>
+            <p class="shine"></p>
+            <p class="shine"></p>
+            <p class="shine"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hotels-list-div" *ngIf="!loader">
+      <!-- | paginate
+      : {
+          itemsPerPage: filters?.count,
+          currentPage: filters?.page,
+          totalItems: totalProperties
+        }; -->
+      <!-- (mouseover)="propertyHover(i)" -->
+      <div class="hotel-div hotel-div  mt-3 pb-0" (mouseout)="removeClass()" let i=index *ngFor="
+          let item of allData">
+        <div class="hotel-image">
+          <ngb-carousel *ngIf="item.photos">
+            <ng-template ngbSlide *ngFor="let pic of item.photos">
+              <div class="picsum-img-wrapper">
+                <img src="{{ proImg(pic.large) }}"  class="propertyImage" />
+              </div>
+            </ng-template>
+          </ngb-carousel>
+          <img *ngIf="!item.photos" src="/assets/img/homePlaceholder1.png" 
+            class="propertyPlaceholder" />
+          <!-- <img src="../../../assets/img/propertynew.jpeg" class="propertyimg" /> -->
+        </div>
+
+
+        <div class="card-right-side">
+          <div class="head-div">
+            <div class="card-right-side-section1">
+              <span class="room-type"> Property Type- {{ item.summary.propsubtype |
+                titlecase }}
+              </span>
+
+            </div>
+            <!-- <span class="room-person" (click)="viewProperty(item.id)">  Total Beds- {{ item.building.rooms.beds | titlecase }}</span> -->
+            <div class="show-border"></div>
+
+            <!-- <h3 class="pricecls mt-3 mb-0">$285,900</h3> -->
+            <div class="all-types" >
+              <span class="types">Total rooms- &nbsp;{{
+                item.building.roomsTotal }}</span>
+                <span class="cardBedsBathsInfo_separator__Flg7p"></span>
+              <span class="types">&nbsp;<i class="fa fa-bath" aria-hidden="true"></i>&nbsp;{{
+                item.building.bathstotal }}</span>
+                <span class="cardBedsBathsInfo_separator__Flg7p"></span>
+              <span class="types" >&nbsp; <i class="fa fa-bed"></i>&nbsp;{{ item.building.beds
+                }}</span>
+                <span class="cardBedsBathsInfo_separator__Flg7p"></span>
+              <span class="types">&nbsp;<i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{
+                item.address.oneLine }}</span>
+                
+            </div>
+            <div class="text-left mt-3 ">
+              <button class=" btnclss"  (click)="viewProperty(item.attomId)">View Budget</button>
+              <button class=" btnclss"  (click)="viewPropertyDetails(item.attomId)">Property details</button>
+            </div>
+
+            <div class=" d-flex justify-content-between cursor-pointer flex-wrap" >
+
+            </div>
+          </div>
+          <div class="bottom-div text-right">
+            <div ngbDropdown class="totalPriceDropdown">
+              <button class="btn btn-outline-secondary" ngbDropdownToggle>
+
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-3 text-center NoProperty ml-auto mr-auto " *ngIf="totalProperties == 0">
+        <img src="/assets/img/propertyPlaceholder.png" class="noProperty" />
+        <h4>No Property</h4>
+      </div>
+
+      <!-- <div
+        class="paginationWrapper text-right mt-3"
+        *ngIf="totalProperties > filters.count"
+      >
+        <pagination-controls
+          (pageChange)="filters.page = $event; pageChange()"
+        ></pagination-controls>
+      </div> -->
+    </div>
+  </div>
+
+  
+  <div class="side2">
+
+   
+    <div #promap class="map-responsive searchMap" (mouseover)="searchType = 'map'" (mouseout)="searchType = 'address'">
+      <i class="sizeBtn fa shadow" [ngClass]="{ 'fa-chevron-left': !isBig, 'fa-chevron-right': isBig }"
+        (click)="bigToggle()"></i>
+      <label class="mapMove shadow"><input type="checkbox" [(ngModel)]="mapMove" /> Search as I move the
+        map</label>
+      <!-- <span class="distance">Distance: {{ filters.distance }}</span>
+      <span class="zoom">Zoom: {{ filters.zoom }}</span> -->
+
+      <!-- <span class="buttons shadow">
+        <i class="fa fa-plus" (click)="zoomIn()"></i>
+        <i class="fa fa-minus" (click)="zoomOut()"></i>
+      </span> -->
+
+      <!-- <agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="zoom"
+        (idle)="mapIdle()"
+        (centerChange)="centerChange($event)"
+        (zoomChange)="changeZoom($event)"
+        [disableDefaultUI]="false"
+        [zoomControl]="false"
+        (boundsChange)="boundsChange($event)"
+        (mapReady)="mapReady($event)"
+      > -->
+      <!-- (zoomChange)="changeZoom($event)" -->
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (idle)="mapIdle()" (centerChange)="centerChange($event)"
+        [disableDefaultUI]="false" [zoomControl]="false" (boundsChange)="boundsChange($event)"
+        (mapReady)="mapReady($event)">
+        <!-- [label]="viewPrice(data.detail.price)" -->
+        <agm-marker (markerClick)="markerClicked($event)" [iconUrl]="data.iconUrl"
+          *ngFor="let data of markers; let i = index" [latitude]="data.lat" [longitude]="data.lng">
+          <agm-info-window #infoWindow>
+            <div class="map-popup">
+              <div class="markerImage">
+                <ngb-carousel *ngIf="data?.detail?.photos">
+                  <ng-template ngbSlide *ngFor="let pic of data?.detail?.photos">
+                    <img src="{{ proImg(pic.large) }}" (click)="viewProperty(data?.detail?.id)" class="w-100" />
+                  </ng-template>
+                </ngb-carousel>
+                <img *ngIf="!data?.detail?.photos" src="/assets/img/homePlaceholder1.png"
+                  (click)="viewProperty(data?.detail?.id)" class="w-100" />
+              </div>
+              <article class="content">
+                <div class="rating mb-2" (click)="viewProperty(data?.detail?.id)">
+                  <i class="fa fa-star text-primary mt-2"></i> 4.40(32)
+                </div>
+
+                <h5 (click)="viewProperty(data?.detail?.id)" title="{{ data?.detail?.title | titlecase }}"
+                  class="markerTitle text-truncate">
+                  {{ data?.detail?.title | titlecase }}
+                </h5>
+
+                <div class="price">
+                  <b>{{ data?.detail?.price | currency }}</b> / night
+                </div>
+              </article>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>
+<div class="modal d-block" *ngIf="loginModal">
+  <div class="modal-overlay overlayNew" (click)="loginModal=false"></div>
+  <div class="modal-dialog  modal-dialog-centered dateModal" role="document">
+    <div class="modal-content loginpopup">
+      <button type="button" class="close Overlap" (click)="loginModal=false">
+        <span aria-hidden="true">&times;</span> </button>
+      <div class="modal-body text-center">
+        <h3 class="TEXTCLSSCSSS">You must be Login to View budget ! If you dont have user account, <a
+            routerLink="/auth/signup">please create one !</a></h3>
+      </div>
+      <div class=" maxButton justify-content-end ">
+
+        <!-- <button type="button" class="btn btn-secondary okkcss" (click)="loginModal=false">ok</button> -->
+      </div>
+    </div>
+  </div>
+</div>

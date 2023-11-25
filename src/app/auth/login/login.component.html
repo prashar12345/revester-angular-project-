@@ -1,0 +1,45 @@
+<div class="loginWrapper">
+    <div class="container">
+        <article class="card shadow border-0 p-3 ">
+            <form [formGroup]="loginForm" novalidate (submit)="onSubmit()"class="cardpage ">
+                <div class="mb-3">
+                    <div class="text-center mb-3 mt-2">
+                        <img src="../../../assets/img/VEStoree-PNG.png" class="logo" alt="">
+                    </div>
+                    
+                    <h5 class="text-center textClss mb-4 ">Login</h5>
+                    <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email || f.email.errors.pattern">Please Enter Valid Email</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="inputWrapper">
+                        <input formControlName="password" [type]="showPass ? 'text' : 'password'" type="password"
+                            minlength="3" class="form-control" placeholder="Password" required>
+                        <i class="fa" (click)="showPass = !showPass"
+                            [ngClass]="{'fa-eye': showPass, 'fa-eye-slash':!showPass}"></i>
+                    </div>
+
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Minimum Length is 8</div>
+                    </div>
+                </div>
+                <p  >
+                    <input type="checkbox" formControlName="remember" (click)="markRemember()" name="remember" class="ml-2"> Remember Me</p>
+                <div class="mt-3 text-center">
+                    <a routerLink="/auth/forgot" class="forgotpassword">Forgot your password?</a>
+                    
+                    <button type="submit" class="btn btn-primary buttonCss mt-3 w-100 mb-4">
+                        Log in
+                    </button>
+
+                    <a class="">Don't have an account?<span class="spanclss"routerLink="/auth/signup" >Sign Up</span></a>
+                </div>
+
+            </form>
+        </article>
+    </div>
+</div>

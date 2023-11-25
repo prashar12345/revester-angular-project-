@@ -1,0 +1,112 @@
+
+
+<div class="row">
+  <div class="col-md-6">
+    <h1 class="heding mt-3">Transactions</h1>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card-header d-flex  justify-content-end ">
+      <div class=" ">
+  
+        <form class="search-formd-flex" (ngSubmit)="searchValue()">
+          <input class="form-control name" [(ngModel)]="filters.search" [ngModelOptions]="{standalone: true}" id="name"
+            required type="text" placeholder=" Search.." /><i class="fa fa-times" aria-hidden="true"  *ngIf="filters.search" (click)="clearValue()" ></i>
+  
+  
+        </form>
+  
+      </div>
+      <div>
+        <button type="submit" [disabled]='!filters.search' class="btn btn-primary searchbtn"><i
+            class="fa fa-search"></i></button>
+        <!-- <button type="button" *ngIf="filters.search" (click)="clearValue()" class="btn btn-primary ">Clear</button> -->
+      </div>
+    </div>
+  </div>
+ 
+
+</div>
+<div class="tab-content" id="myTabContent" *ngIf="!this.appStateSvc.stateData.loader">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="content-section">
+      <div  class="content-body inner-container bg-white text-muted">
+        <ngx-datatable class="bootstrap" [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50"
+          [rowHeight]="50" [scrollbarV]="false" [scrollbarH]="true" [externalPaging]="true" [count]="totalItems"
+          [reorderable]="false" [rows]="faqData" [columns]="columns" [limit]="5" (page)="setPage($event,'active')"
+          [offset]="page -1 ">
+
+          <ngx-datatable-column name="Transaction Id" prop="txnId">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              {{value}}
+              <!-- <a href="javascript:void(0);" class="link"  title="View Content"></a> -->
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name=" Name" prop="planName">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              {{value}}
+              <!-- <a href="javascript:void(0);" class="link"  title="View Content"></a> -->
+            </ng-template>
+          </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="User Name" prop="userName">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{ value }}
+                    </ng-template>
+                  </ngx-datatable-column> -->
+          <ngx-datatable-column name="Price" prop="price">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Status" prop="txnStatus">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Date and Time" prop="txnDate">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value | date: 'dd/MM/yyyy hh:mm a' }}
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row shine" *ngIf="this.appStateSvc.stateData.loader">
+  <div class="col-md-12 shine">
+    <table class="table shine">
+      <thead class="thead theadcss shine">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+          <th scope="col">Action</th>
+
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of this.appStateSvc.stateData.shineItem">
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div * class="pages shine">
+      <pagination-controls class="paginationclss shine"></pagination-controls>
+    </div>
+
+  </div>
+</div>

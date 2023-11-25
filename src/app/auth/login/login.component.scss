@@ -1,0 +1,50 @@
+.loginWrapper{
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: 100vh;
+
+    > .container{
+        max-width: 430px;
+    }
+}
+.forgotpassword{
+    color:#F08519;
+}
+a.forgotpassword {
+    color: #F08519 !important;
+}
+.card.border-top{
+    border-top: 2px solid #007bff !important;
+}
+.loginWrapper:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgb(0 0 0 / 20%);
+}
+
+
+.cardpage {
+    max-width: 330px;
+    margin-left: auto;
+    width: 100%;
+    margin-right: auto;
+    padding-bottom: 18px;
+}
+
+.loginWrapper .card .forgotpassword {
+    color: #000;
+}
+.inputWrapper{
+    position:relative;
+}
+.inputWrapper i {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+}

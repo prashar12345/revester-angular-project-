@@ -1,0 +1,50 @@
+<nav class="navbar mainHeader navbar-expand-lg navbar-light bg-white">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img src="../../../assets/img/VEStoree-PNG.png" class="logo" alt="">
+    </a>
+
+    <button class="navbar-toggler" (click)="toggle=!toggle" type="button" data-toggle="collapse"
+      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'active show':toggle}">
+      <ul class="navbar-nav ml-auto ">
+        <li class="nav-item">
+          <a class="nav-link headerstyle" routerLink="/about-us">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link headerstyle" routerLink="/blogs">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link headerstyle" routerLink="/subscriptionplan">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link headerstyle" routerLink="/contact-us">Contact Us</a>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav ">
+        <li class="nav-item" *ngIf="!user">
+          <a class="nav-link headerstyle" routerLink="/auth/login">Log in</a>
+        </li>
+        <div class="userDropdown nav-item d-inline-block" *ngIf="user" ngbDropdown>
+          <button class="btn btn-outline-primary" id="user" ngbDropdownToggle>
+            <img src="{{userImg(user?.image)}}" alt="" class="headerProfile ml-2" /> {{user.firstName | titlecase}}
+          </button>
+          <div ngbDropdownMenu aria-labelledby="user">
+            <button ngbDropdownItem routerLink="/dashboard">Dashboard</button>
+            <button ngbDropdownItem routerLink="/profile">Profile</button>
+            <button ngbDropdownItem routerLink="/auth/change-password">Change Password</button>
+            <button ngbDropdownItem (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+<div class="nullheader">
+
+</div>

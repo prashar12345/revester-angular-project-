@@ -1,0 +1,277 @@
+<!-- <p>news-listing works!</p> -->
+<div class="main mt-5">
+    <div class="text-center ">
+        <h1 class="hedding">Return on investment (ROI)</h1>
+
+    </div>
+
+    <div class="row mx-0">
+
+
+        <div class="col-md-12">
+            <div class="bannerdiv">
+                <img src="../../../assets/img/analysis.jpg" class="newsimg " />
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+
+            <div class="col-md-12 text-center ">
+                <h3>For real estate, ROI is calculated by dividing the total amount correctly invested into your
+                    property by your total
+                    current Net profit.</h3>
+
+            </div>
+
+        </div>
+        <!-- <h1 class="text-center hedding">News </h1> -->
+
+        <div class="container">
+            <div class="row">
+                <ng-container>
+                    <div class="col-md-6 mt-4">
+                        <div claSS="cards ">
+                            <div>
+                                <img src="../../../assets/img/return investment.jpeg" class=" listingimg">
+
+                                <!-- <img src="../../assets/img/home2.jpeg" class="listingimg " /> -->
+                            </div>
+                            <div class="containt">
+                                <p>Example</p>
+                               
+                                
+                                <label class="mt-2">purchase price </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control"
+                                        [(ngModel)]="purchaseprice" (change)="somethingChanged()">
+                                </div>
+
+
+                                <label class="mt-2">Rehab Cost </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <div ngbDropdown class="w-100">
+                                        <button type="button" class="form-control text-left" id="dropdownBasic1" ngbDropdownToggle>
+                                            <ng-container *ngIf="!RehabCost">
+                                                 Sclect Budget
+                                            </ng-container>
+                                           
+                                          <ng-container *ngIf="RehabCost" > {{RehabCost}}</ng-container>
+                                          
+                                           
+                                        
+                                        </button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngIf="!allproperty" >
+                                            <ng-container *ngFor="let item of allproperty" >
+                                            
+                                          <button ngbDropdownItem (click)="RehabCost=item.totalAmount;somethingChanged()">{{item.totalAmount}} </button>
+                                        </ng-container>
+                                        </div>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="min-100" *ngIf="allproperty" >
+                                            <ng-container *ngFor="let item of allproperty"  >
+                                            
+                                          <button ngbDropdownItem (click)="RehabCost=item.totalAmount ;somethingChanged()" >{{item.totalAmount}}</button>
+                                        </ng-container>
+                                         
+                                        </div>
+                                      </div>
+                                    <!-- <input type="number" placeholder="85,000" class="form-control"
+                                        [(ngModel)]="RehabCost" (change)="somethingChanged()"> -->
+                                </div>
+
+                                <label class="mt-2">Taxes </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number"  class="form-control" [(ngModel)]="Taxes"
+                                        (change)="somethingChanged()">
+                                </div>
+
+                                <label class="mt-2">Insuarance </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number"  class="form-control"
+                                        [(ngModel)]="Insuarance" (change)="somethingChanged()">
+                                </div>
+
+                                <label class="mt-2">Fees </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number"class="form-control" [(ngModel)]="Fees"
+                                        (change)="somethingChanged()">
+                                </div>
+
+                                <label class="mt-2">Depriciation </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control"
+                                        [(ngModel)]="Depriciation" (change)="somethingChanged()">
+                                </div>
+
+                                <label class="mt-2">Other (work performance )</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number"  class="form-control" [(ngModel)]="Other"
+                                        (change)="somethingChanged()">
+                                </div>
+
+
+                                <label class="mt-2">Total Amount </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" *ngIf="!Total"  class="form-control"
+                                        [(ngModel)]="Total">
+                                    <div class="form-control" *ngIf="Total"> ${{Total}}</div>
+                                </div>
+
+
+                                <!-- <p>Rehab Cost + $85,000</p> -->
+                                <!-- <p>Taxes + $ + $17500</p> -->
+                                <!-- <p>Insuarance + $ 6800</p> -->
+                                <!-- <p>Fees + $ 4250</p> -->
+                                <!-- <p>Depriciation + $ 9250</p> -->
+                                <!-- <p>Other + $ 2800 (work
+                                    performance )</p>
+                                <p>Total Amount $225,600</p> -->
+
+                            </div>
+                             <!-- <div class="containt" *ngFor="let item of amount">
+                                <p>Example</p>
+                                <h3>property 1</h3>
+                                <p>Exterior Demolition Cost - ${{item.}}</p>
+                                <p>Masonry Cost + ${{item,}}</p>
+                                <p>Garage Cost + $ + ${{item.}}</p>
+                                <p>Interior Demolition Cost + ${{item.}}</p>
+                                <p>Utilities Cost + $ {{item.}}</p>
+                                <p>Kitchen Cost + $ {{item.}}</p>
+                                <p>Baths Cost + $ {{item.}}</p>
+                                <p>Laundry Cost + $ {{item.}}</p>
+                                <p>Final Clean Out Cost + $ {{item.}}</p> -->
+                              
+                                <!-- <p>Other + $ 2800 (work
+                                    performance )</p> -->
+                                <!-- <p>Total Amount ${{item.}}</p> -->
+<!-- 
+                            </div> -->
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <div claSS="cards ">
+                            <div>
+
+                                <img src="../../../assets/img/rs.jpg" class="listingimg " />
+                                <!-- <img src="../../assets/img/home2.jpeg" class="listingimg " /> -->
+                            </div>
+                            <div class="containt">
+
+                                <h3>property 1</h3>
+
+                                <label class="mt-2">Sale price </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number"  class="form-control"
+                                        [(ngModel)]="Saleprice" (change)="somethingChangedIN()">
+                                </div>
+
+                                <label class="mt-2">Rent collection </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number"  class="form-control"
+                                        [(ngModel)]="Rentcollection" (change)="somethingChangedIN()">
+                                </div>
+
+                                <label class="mt-2">other (EX.Laundary,Parking,ETC) </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control" [(ngModel)]="other"
+                                        (change)="somethingChangedIN()">
+                                </div>
+
+                                <label class="mt-2">Taxes of 28% </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number"  class="form-control"
+                                        [(ngModel)]="Taxesof">
+                                </div>
+
+                                <label class="mt-2">Total net profit </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                        <input  *ngIf="!Taxesof " type="number" class="form-control" >
+                                    <div class="form-control" *ngIf="Taxesof ">{{totaloperatingincom()|number}}</div>
+                                </div>
+
+
+
+                                <label>ROI </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" *ngIf="!Total"
+                                      class="form-control"
+                                        [(ngModel)]="ROI">
+
+                                    <div class="form-control" *ngIf="Total"> ROI : ${{Total}}/${{totaloperatingincom()|
+                                        number}}={{showoperation() |number }}x100={{showresult().toFixed(1)}}% ROI</div>
+                                </div>
+                                <!-- <div class="form-control" *ngIf="Taxesof " >{{totaloperatingincom()|number}}</div> -->
+
+                               
+                                <!-- <label >ROI </label>
+                                <input type="number" *ngIf="!Total"  placeholder="ROI $225,600/$370,656= 0.608*100=60.8% ROI" class="form-control" [(ngModel)]="ROI" >
+
+                                <div class="form-control" *ngIf="Total" > ROI :  ${{Total}}/${{totaloperatingincom()| number}}={{showoperation() |number }}x100={{showresult().toFixed(1)}}% ROI</div> -->
+                                
+                                
+<!--                                 
+                                <p>Sale price - $450,000</p>
+                                <p>Rent collection + $52,500</p> -->
+                                <!-- <p>other +$12,300</p>
+                                <p>Tax 28% 144,144</p>
+                                <p>Total net profit - $ 370,656</p> -->
+                                 <!-- <label class="mt-2">Sale price  </label>
+                                <input type="number"  placeholder=" $100,000" class="form-control"> -->
+                               
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </ng-container>
+
+
+            </div>
+            <!-- 
+            <div class="row">
+
+                <div class="col-md-4 mt-4">
+                    <div claSS="cards ">
+                        <div class="listingimg shine ">
+
+                        </div>
+                        <div class="containt">
+                            <h1 class="listingTital shine "></h1>
+                            <p class="listingPara shine"> </p>
+                            <button class="Detailbtn shine">
+                                <a>
+
+                                </a>View Detail</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,349 @@
+<div class="maindiv">
+
+
+    <form [formGroup]="propertySoftCost" novalidate (submit)="onSubmit()">
+        <!-- <h3>Hard Cost</h3> -->
+        <div class="box-content-colapse">
+            <details class="details-comp mb-2" [open]="this.appStateSvc.stateData.budgetHardCostSubmit && showButton">
+                <summary class="summary-colapse">
+                    Hard Cost:
+                </summary>
+                <!-- <div>
+                    <table class="table table-bordered">
+                        <thead class="">
+                            <tr class="">
+                                <th></th>
+                                <th>Price</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Permits</td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="number" formControlName="permit_price" class="" placeholder="$"
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.permit_price.errors" class="invalid-feedback">
+                                        <div *ngIf="f.permit_price.errors.required">permit_price
+                                            is required
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="text" formControlName="permit_notes" class="" placeholder=""
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.permit_notes.errors" class="invalid-feedback">
+                                        <div *ngIf="f.permit_notes.errors.required">permit_notes
+                                            is required
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Plans</td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="number" formControlName="plans_price" class="" placeholder="$"
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.plans_price.errors" class="invalid-feedback">
+                                        <div *ngIf="f.plans_price.errors.required">plans_price
+                                            is required
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="text" formControlName="plans_notes" class="" placeholder=""
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.plans_notes.errors" class="invalid-feedback">
+                                        <div *ngIf="f.plans_notes.errors.required">plans_notes
+                                            is required
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Surveys</td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="number" formControlName="survey_price" class="" placeholder="$"
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.survey_price.errors" class="invalid-feedback">
+                                        <div *ngIf="f.survey_price.errors.required">survey_price
+                                            is required
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="text" formControlName="survey_notes" class="" placeholder=""
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.survey_notes.errors" class="invalid-feedback">
+                                        <div *ngIf="f.survey_notes.errors.required">survey_notes
+                                            is required
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            <tr formArrayName="course"
+                                *ngFor="let time of propertySoftCost.controls.course?.value; let i = index; trackBy:trackByFn">
+
+                                <ng-container [formGroupName]="i">
+
+                                    <td>{{i==0?'Other':''}} <i class="fa fa-plus" *ngIf="i==0" aria-hidden="true"
+                                            (click)=addmore()></i>
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="form-group mb-0">
+                                            <input type="number" formControlName="other_labor_cost" class=""
+                                                placeholder="$" id="text" class="inputclss form-control">
+                                        </div>
+                                        <div *ngIf="submitted && f.other_labor_cost.errors" class="invalid-feedback">
+                                            <div *ngIf="f.other_labor_cost.errors.required">other_labor_cost is required
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <td>
+
+                                        <div class="form-group mb-0">
+                                            <input type="text" formControlName="other_material_cost" class=""
+                                                placeholder="" id="text" class="inputclss form-control">
+                                        </div>
+                                        <div *ngIf="submitted && f.other_material_cost.errors" class="invalid-feedback">
+                                            <div *ngIf="f.other_material_cost.errors.required">other_material_cost is
+                                                required
+                                            </div>
+                                        </div>
+
+                                    </td>
+
+                                </ng-container>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+
+
+                <!-- Interior: -->
+
+                <div class="box-content-colapse">
+                    
+                        
+                           
+                            <div>
+                                <app-phase-i></app-phase-i>
+                            </div>
+    
+                            <div>
+                                <app-phase-ii></app-phase-ii>
+                            </div>
+    
+                            <div>
+                                <app-phase-iii></app-phase-iii>
+                            </div>
+                    
+                       
+                        <div>
+                            <app-phase-iv></app-phase-iv>
+
+                        </div>
+
+                        <div>
+                            <app-phase-v></app-phase-v>
+                        </div>
+
+                        <!--Phase VI - Bedrooms, etc.  -->
+                        <div>
+                            <app-phase-vi></app-phase-vi>
+
+                        </div>
+                        <!--Phase VII Kitchen  -->
+
+                        <div>
+                            <app-phase-vii></app-phase-vii>
+
+                        </div>
+                        <!--Phase VIII-Baths -->
+
+                        <div>
+                            <app-phase-viii></app-phase-viii>
+
+                        </div>
+                        <!--Phase IX-Laundry -->
+
+                        <div>
+                            <app-phase-ix></app-phase-ix>
+
+                        </div>
+                        <!--Phase X - -->
+
+                        <div>
+                            <app-phase-x></app-phase-x>
+
+                        </div>
+                   
+
+                </div>
+
+
+
+            </details>
+
+        </div>
+
+
+
+        <div class="text-right mr-5 mb-3 ">
+            <!-- (click)="formFun('soft_cost')" -->
+            <button type="submit" *ngIf="this.appStateSvc.stateData.budgetHardCostSubmit && showButton"
+                class="btn btn-warning ">Submit</button>
+        </div>
+        <!-- *ngIf="pdf && compare>=currentDate " -->
+        <!-- <div>
+            <a href="{{getimg(data)}}" target="_new"><i class="fa fa-file-pdf-o"
+                    style="font-size:25px;color:red"></i></a>
+        </div> -->
+
+
+        <!-- <pdf-viewer 
+src="{{api+item.value}}"
+
+[original-size]="false"
+[show-all]="true"
+[fit-to-page]="false"
+[zoom]="1"
+[zoom-scale]="'page-width'"
+[stick-to-page]="false"
+[render-text]="true"
+[external-link-target]="'blank'"
+[autoresize]="true"
+[show-borders]="false"
+style="width: 100%; height: 600px;"
+></pdf-viewer> -->
+    </form>
+</div>
+
+
+
+
+
+<div class=" mt-5 mb-5 mr-4" *ngIf="pdf">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="totalclss">
+                <table class="tbclss">
+                    <tr>
+                        <th class="boader">Total Property Cost</th>
+                        <th class="boader">Total Hard Cost</th>
+                        <th class="boader">Total Soft Cost</th>
+                        <th class="boader">Total Budget</th>
+                        <th class="boader">Download PDF</th>
+                    </tr>
+                    <tr>
+
+                        <td class="boader">{{totalPropertyCost}}</td>
+                        <td class="boader">{{totalHardCost}}</td>
+                        <td class="boader">{{totalSoftCost}}</td>
+                        <td class="boader">{{totalAmount}}</td>
+                        <td class="boader"><i (click)="show()" class="fa fa-download" aria-hidden="true"></i></td>
+                        <!-- <a href="{{getimg(data)}}" target="_new"><i class="fa fa-file-pdf-o"  style="font-size:25px;color:red"></i></a> -->
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div ngbDropdown class="w-100" >
+    <button type="button" class="form-control" id="dropdownBasic1" ngbDropdownToggle>
+        <ng-container>
+            All property Budget
+        </ng-container>
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngIf="!allproperty" >
+        <ng-container *ngFor="let item of allproperty" >
+           <button ngbDropdownItem  >{{item.totalRehabCost}} </button>
+    </ng-container>
+    </div>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngIf="allproperty" >
+        <ng-container *ngFor="let item of allproperty" >
+             <button ngbDropdownItem  >{{item.totalRehabCost}} </button>
+    </ng-container>
+     
+    </div>
+  </div> -->
+
+
+
+
+
+<div class="modal d-block" *ngIf="loginModal">
+    <div class="modal-overlay overlayNew" (click)="loginModal=false"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content loginpopup">
+            <div class="modal-header modalheader">
+                <button type="button" class="close" (click)="loginModal=false">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body">
+                <h3 class="TEXTCLSSCSSS">You must be Login to proceed with subscription ! If you dont have user account,
+                    <a routerLink="/auth/signup">please create one !</a>
+                </h3>
+            </div>
+            <div class=" maxButton justify-content-end ">
+
+                <!-- <button type="button" class="btn btn-secondary okkcss" (click)="loginModal=false">ok</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal d-block" *ngIf="card_added == true ">
+    <div class="modal-overlay overlayNew" (click)="card_added=false"></div>
+    <div class="modal-dialog modal-dialog-centered  dateModal " role="document">
+        <div class="modal-content">
+            <div class="modal-header modalheader mt-0 pt-0">
+                <button type="button" class="close mt-1" (click)="card_added=false">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body text-center">
+                <h3 class="detailclss">You can't download pdf before buy subscription.</h3>
+                <!-- <p class="paraclass">we are delighted to inform you we received<br> your Card.</p> -->
+                <h3 class="detailclss mt-3">If you want buy a subscription</h3>
+                <button type="button" class="btn btn-secondary Close mb-3" (click)="pay_subscription()">Click
+                    Here!</button>
+            </div>
+            <!-- <div class=" maxButton justify-content-end mb-4">
+  
+                   <button type="button" class="btn btn-secondary Close" (click)="card_added=false">Ok</button> 
+              </div>  -->
+        </div>
+    </div>
+</div>

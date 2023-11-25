@@ -1,0 +1,105 @@
+<!-- <p>find-property works!</p> -->
+<div class="homeSlider">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../assets/img/home-exterior-today-180726-tease-1355945 (1).jpg" alt="Random first slide">
+        </div>
+        
+        <div class="container bannertxtcls mt-5">
+          <div class="row">
+            <div class="col-md-8 text-center">
+              <h1 class="hedding_clss">REvestor.com for the Serious
+                Real Estate Investor</h1>
+          <p  class="para_clss" >Search - Invest - Rehab - Own - Develope</p>
+          <p class="para_clss">All the tools you need to become as Successfull
+            as you want to be</p>
+            <div class="mt-4">
+                <input type="=text" class="searchclass from-control mr-3"  placeholder="Enter Property Address or a City or a State">
+                <!-- <i class="fa fa-search searchicon" aria-hidden="true"></i> -->
+                <button class="Find_Property">Find Property</button>
+              </div>
+          </div>
+            </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../assets/img/banner imag.jpg" alt="Random second slide">
+        </div>
+        <div class="container bannertxtcls mt-5">
+          <div class="row">
+            <div class="col-md-8 text-center">
+              <h1 class="hedding_clss">REvestor.com for the Serious
+                Real Estate Investor</h1>
+          <p  class="para_clss" >Search - Invest - Rehab - Own - Develope</p>
+          <p class="para_clss">All the tools you need to become as Successfull
+            as you want to be</p>
+            <div>
+                <input type="=text" class="searchclass from-control mr-3" placeholder="Enter Property Address or a City or a State" >
+                <button class="Find_Property">Find Property</button>
+              </div>
+          </div>
+            </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../assets/img/Modern-Home-Banner.jpg" alt="Random third slide">
+        </div>
+        <div class="container bannertxtcls mt-5">
+          <div class="row">
+            <div class="col-md-8 text-center">
+              <h1 class="hedding_clss">REvestor.com for the Serious
+                Real Estate Investor</h1>
+          <p  class="para_clss " >Search - Invest - Rehab - Own - Develope</p>
+          <p class="para_clss">All the tools you need to become as Successfull
+            as you want to be</p>
+            <div>
+                <input type="=text" class="searchclass from-control text-left mr-3" placeholder="Enter Property Address or a City or a State" >
+                <button class="Find_Property">Find Property</button>
+              </div>
+          </div>
+            </div>
+        </div>
+        
+        
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+
+
+
+  <h3 class="text-center tital mt-3">Featured news</h3>
+  <div class="slick-wrapper">
+
+    <!-- You can now use your library component in app.component.html -->
+    <ngx-slick-carousel class="carousel mr-5 ml-5" #slickModal="slick-carousel" [config]="slideConfig"
+      (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide p-2">
+        <div class="clss_card">
+          <img src="https://picsum.photos/536/354?{{slide}}" alt="" width="100%" class="imgcard">
+          <div class="cardtxt">
+            <p class="mt-2 semiclass">New York</p>
+            <h3 class="mt-2 dataclass">
+              Pacific Heights Area
+            </h3>
+            <p class="Viewclass" routerLink="/blogdetail">View Detail</p>
+          </div>
+        </div>
+
+      </div>
+    </ngx-slick-carousel>
+
+  </div>
+
+
+  <div class="row">
+      <div class="col-md-12">
+        <div class="bannerclass">
+        <img src="../../assets/img/lastbanner.png" class=" bnner2 w-100">
+      </div>
+      </div>
+  </div>

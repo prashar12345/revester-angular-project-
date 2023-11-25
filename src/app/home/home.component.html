@@ -1,0 +1,545 @@
+<div class="homeSlider">
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/img/realstate.jpg" alt="Random first slide">
+      </div>
+
+      <div class="container bannertxtcls mt-5">
+        <div class="row">
+          <div class="col-md-6">
+
+            <h1 class="hedding_clss">VEStoree.com for the Serious
+              Real Estate Investor</h1>
+            <p class="para_clss">Search - Analyze - Budget - Connect - Invest</p>
+            <p class="para_clss">Search over 350 Million U.S. property addresses & Compare and Comp easily</p>
+            <p class="para_clss">Analyze and Budget your Real Estate investments</p>
+            <p class="para_clss">Research permits, zoning, and more Find architects, interior designers, and contractors
+              Easily save all of your data and Prepare your reports</p>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <!-- <button [routerLink]="['/property-dash']" class="Find_Property">Find Property</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/img/Rectangle 1 (1).png" alt="Random second slide">
+      </div>
+      <div class="container bannertxtcls mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="hedding_clss">VEStoree.com for the Serious
+              Real Estate Investor</h1>
+            <p class="para_clss">Search - Analyze - Budget - Connect - Invest</p>
+            <p class="para_clss">Search over 350 Million U.S. property addresses & Compare and Comp easily</p>
+            <p class="para_clss">Analyze and Budget your Real Estate investments</p>
+            <p class="para_clss">Research permits, zoning, and more Find architects, interior designers, and contractors
+              Easily save all of your data and Prepare your reports</p>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <!-- <button [routerLink]="['/property-dash']" class="Find_Property">Find Property</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/img/banner.png" alt="Random third slide">
+      </div>
+      <div class="container bannertxtcls mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="hedding_clss">VEStoree.com for the Serious
+              Real Estate Investor</h1>
+            <p class="para_clss">Search - Analyze - Budget - Connect - Invest</p>
+            <p class="para_clss">Search over 350 Million U.S. property addresses & Compare and Comp easily</p>
+            <p class="para_clss">Analyze and Budget your Real Estate investments</p>
+            <p class="para_clss">Research permits, zoning, and more Find architects, interior designers, and contractors
+              Easily save all of your data and Prepare your reports</p>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <!-- <button [routerLink]="['/property-dash']" class="Find_Property">Find Property</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </ng-template>
+  </ngb-carousel>
+</div>
+
+
+<div class="container">
+  <form [formGroup]="searchForm" novalidate (submit)="onSubmit()">
+
+    <div class="mainclass">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="row">
+            <!-- <div class="col-md-6">
+
+            <div ngbDropdown class="d-block ">
+              
+                <select class="parameter " class="btn btn-outline-primary selectbox_clss w-100 dropdown text-left" formControlName="propertyType" id="propertyType">
+                  <option value="" class="optionclss">Investor Type</option>           
+                  <option value="Rehab - Flipper">Rehab - Flipper</option>                      
+                  <option value="Apt. Building - Landlord">Apt. Building - Landlord</option>                        
+                  <option value="Land/Lots - Developer">Land/Lots - Developer</option>                                      
+              </select>
+              
+            </div>
+          </div> -->
+            <div class="col-md-8">
+
+              <div ngbDropdown class="d--block ">
+
+                <input type="text" placeholder="Enter address, neighborhood, city or Zip Code"
+                  ngx-google-places-autocomplete autocomplete="off" [options]='options' class="form-control fieldclassCss mb-2"
+                  formControlName="address" #placesRef="ngx-places"
+                  (onAddressChange)="handleAddressChange($event,'free')" />
+              </div>
+            </div>
+
+
+
+            <div class="col-md-4">
+              <button class="btnclass" (click)="SearchProperty()" >FIND NOW</button>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+
+</div>
+
+
+<form [formGroup]="propertCrawlFrom" novalidate (submit)="onSubmit()">
+  <div class=" bgclass">
+    <h1 class="text-center headingclass">Property Crawl</h1>
+    <h3 class="text-center properties">Find properties across the U.S. with the highest ROI potential</h3>
+
+    <div class="container">
+      <div class="divmainclass">
+        <div class="row">
+          <!-- <div class="col-md-4">
+
+            
+            <div ngbDropdown class="d-block ">
+              <select class="parameter " class=" selectstyle w-100 dropdown form-control text-dark" >
+                
+                <option value="" class="optionclss">Investor Type</option>           
+                <option value="Rehab - Flipper">Rehab - Flipper</option>                      
+                <option value="Apt. Building - Landlord">Apt. Building - Landlord</option>                        
+                <option value="Land/Lots - Developer">Land/Lots - Developer</option>                                      
+            </select>
+            </div>
+          </div> -->
+          <div class="col-md-12">
+
+            <div ngbDropdown class="d-block ">
+              <!-- <button type="button" class="btn btn-outline-primary selectbox_clss w-100" id="dropdownBasic1"
+                ngbDropdownToggle>Choose State</button> -->
+              <input type="text" placeholder="Enter City and State" [options]='options1' ngx-google-places-autocomplete autocomplete="off"
+                class="form-control fieldclass mb-2" #placesRef="ngx-places"
+                (onAddressChange)="handleAddressChange($event,'paid')" formControlName="paidSearch" />
+            </div>
+            <a (click)="SearchProperty()"><i class="fa fa-search searchicon"></i></a>
+          </div>
+          <div class="price-box">
+            <div class="ribbon">
+              <span>Paid Subscription</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<section class="bannersection ">
+  <div class="container">
+    <img src="../../assets/img/client_images/vestor.png" class="sideimg">
+    <div class="row">
+      <div class="col-md-6 REvestorclss">
+        <h1 class=" headingclass">Who Is VEStoree.com</h1>
+        <p class=" paraclass">VEStoree.com is an intuitive online website created by Real Estate Investors for Real
+          Estate Investors.
+          We strive to make the process of obtaining property information, analyzing the real estate investment, and
+          researching all of the functionaries involved in the project, as easy as possible.
+          So worry no more, let VEStoree.com be your One Stop Shop for all of your real estate investing needs!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <div class="bannerclass">
+
+    <img src="../../assets/img/banner2.png" class="bnner2">
+
+  </div> -->
+<div class="text-center mt-5">
+  <img src="../../assets/img/client_images/ourservices.png" class="Component">
+</div>
+<!-- <h3 class="text-center tital mt-3">Our Main Focus</h3> -->
+<div class=" nextbanner p-4 mt-4">
+  <div clss="mt-4">
+    <h3 class="text-center mainfocus " style="color: white;">All real estate deals start the same way, first find a
+      property.
+      Then move on to researching, buying, adding value, and doing what it takes to hopefully make money from the
+      project.
+      Our Main focus is to make your real estate journey as simple as possible.</h3>
+  </div>
+  <p class="hopefully text-center">...hopefully make money from your real estate investment...</p>
+
+  <div class="container">
+    <div class="divmainclass">
+      <div class="row">
+        <div class="col-md-4">
+
+        </div>
+
+
+        <div class="col-md-12">
+          <img src="../../assets/img/client_images/main_focus.png" class="Component1">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <h3 class=" sub_tital ">Area Properties
+  </h3>
+</div>
+<h3 class="text-center tital mt-3">Real Estate Analysis and Budgeting</h3>
+<div class="slick-wrapper">
+
+  <!-- You can now use your library component in app.component.html -->
+  <ngx-slick-carousel class="carousel mr-5 ml-5 propertyslider" #slickModal="slick-carousel" [config]="slideConfig"
+    (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+    (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem class="slide">
+      <div class="cardclss">
+        <div class="price-box2">
+          <div class="ribbon2">
+            <span>Paid Subscription</span>
+          </div>
+        </div>
+        <img (click)="view_propertys()" src="../../assets/img/client_images/analysis.png" alt="" width="100%"
+          class="cardimg">
+        <div class="cardtxt">
+          <p class="mt-2 semiclass">New York</p>
+          <h3 class="mt-2 dataclass  text-truncate">
+            Analysis - Market Cap, and ROI
+          </h3>
+          <p class="Viewclass" (click)="  view_propertys()">Create Analysis</p>
+        </div>
+      </div>
+
+    </div>
+    <div ngxSlickItem class="slide">
+      <div class="cardclss">
+        <div class="price-box2">
+          <div class="ribbon2">
+            <span>Add budget</span>
+          </div>
+        </div>
+        <img (click)="view_properties()" src="../../assets/img/client_images/budget.png" alt="" width="100%"
+          class="cardimg">
+        <div class="cardtxt">
+          <p class="mt-2 semiclass">USA</p>
+          <h3 class="mt-2 dataclass  text-truncate">
+            Budget - Soft Costs, Exterior Hard Costs, Interior Hard Costs
+          </h3>
+          <a (click)="view_propertie('Budget')">
+            <p class="Viewclass">Create Budget</p>
+          </a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </ngx-slick-carousel>
+  <!-- <div class="text-right container">
+    <a class="View_More text-right" (click)="view_property()">View More..</a>
+
+  </div> -->
+</div>
+
+
+
+
+<div class="text-center">
+  <h3 class=" sub_tital ">Properties
+  </h3>
+</div>
+<h3 class="text-center tital mt-5 blog_title">Finding - Permit Office, Architects, Interior Designers, Contractors,
+  Hardware and
+  Supply Stores Near Property Address</h3>
+<div class="slick-wrapper">
+
+  <!-- You can now use your library component in app.component.html -->
+  <ngx-slick-carousel class="carousel mr-5 ml-5" #slickModal="slick-carousel" [config]="slideConfig"
+    (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+    (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide p-2">
+      <div class="clss_card">
+
+        <div class="price-box2">
+          <div class="ribbon2">
+            <span>Paid Subscription</span>
+          </div>
+        </div>
+        <img (click)="view_blogsimage()" src="https://picsum.photos/536/354?{{slide}}" alt="" width="100%"
+          class="imgcard">
+        <div class="cardtxt">
+
+          <p class="mt-2 semiclass">New York</p>
+          <h3 class="mt-2 dataclass">
+            Pacific Heights Area
+          </h3>
+
+          <p class="Viewclass" (click)='view_blogs()'>View Detail</p>
+        </div>
+      </div>
+
+    </div>
+  </ngx-slick-carousel>
+</div>
+<div class="text-right m-5">
+  <a class="View_More text-right" (click)='view_blogs()'>View More..</a>
+
+</div>
+
+
+
+
+<div class="bannerclass">
+  <img src="../../assets/img/lastbanner.png" class="bnner2">
+
+</div>
+
+<div class="container">
+  <div class="lastclass">
+    <div class="row lastrow">
+
+      <div class="col-md-9">
+        <h1 class="headingclass">Print Report</h1>
+        <h6 class="subpara mb-0">Report printing for members only.</h6>
+      </div>
+
+      <div class="col-md-3 text-right">
+        <button (click)="explore_properties()" class="Explorebtn">Explore
+          Properties</button>
+      </div>
+      <div class="price-box3">
+        <div class="ribbon3">
+          <span>Paid Subscription</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal d-block" *ngIf="card_added == true ">
+  <div class="modal-overlay overlayNew" (click)="card_added=false"></div>
+  <div class="modal-dialog  dateModal" role="document">
+    <div class="modal-content">
+      <div class="modal-header modalheader">
+        <button type="button" class="close" (click)="card_added=false">
+          <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 class="">This section is only for who add budget</h3>
+        <!-- <p class="paraclass">we are delighted to inform you we received<br> your Card.</p> -->
+        <h3 class="hedding mt-3">If you want to add budget</h3>
+        <button type="button" class="btn btn-secondary Close mb-3" (click)="pay_subscription()">Click Here!</button>
+      </div>
+      <!-- <div class=" maxButton justify-content-end mb-4">
+
+                 <button type="button" class="btn btn-secondary Close" (click)="card_added=false">Ok</button> 
+            </div>  -->
+    </div>
+  </div>
+</div>
+<div class="modal d-block" *ngIf="loginModal">
+  <div class="modal-overlay overlayNew" (click)="loginModal=false"></div>
+  <div class="modal-dialog  dateModal" role="document">
+    <div class="modal-content loginpopup">
+      <div class="modal-header modalheader">
+        <button type="button" class="close" (click)="loginModal=false">
+          <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <h3 class="TEXTCLSSCSSS">You must be Login to proceed with subscription ! If you dont have user account, <a
+            routerLink="/auth/signup">please create one !</a></h3>
+      </div>
+      <div class=" maxButton justify-content-end ">
+
+        <!-- <button type="button" class="btn btn-secondary okkcss" (click)="loginModal=false">ok</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal d-block" *ngIf="budgetmodel">
+  <div class="modal-overlay overlayNew" (click)="budgetmodel=false"></div>
+  <div class="modal-dialog  dateModal" role="document">
+    <div class="modal-content loginpopup">
+      <div class="modal-header modalheader">
+        <button type="button" class="close" (click)="budgetmodel=false">
+          <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <h3 class="TEXTCLSSCSSS">add budget <a routerLink="/auth/signup">please create budget !</a></h3>
+      </div>
+      <div class=" maxButton justify-content-end ">
+
+        <!-- <button type="button" class="btn btn-secondary okkcss" (click)="loginModal=false">ok</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal d-block" *ngIf="card_addeds == true ">
+  <div class="modal-overlay overlayNew" (click)="card_addeds=false"></div>
+  <div class="modal-dialog modal-dialog-centered  dateModal " role="document">
+    <div class="modal-content">
+      <div class="modal-header modalheader mt-0 pt-0">
+        <button type="button" class="close mt-1" (click)="card_addeds=false">
+          <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 class="detailclss">You can't download pdf before buy subscription.</h3>
+        <!-- <p class="paraclass">we are delighted to inform you we received<br> your Card.</p> -->
+        <h3 class="detailclss mt-3">If you want buy a subscription</h3>
+        <button type="button" class="btn btn-secondary Close mb-3" (click)="pay_subscription()">Click
+          Here!</button>
+      </div>
+      <!-- <div class=" maxButton justify-content-end mb-4">
+
+                 <button type="button" class="btn btn-secondary Close" (click)="card_added=false">Ok</button> 
+            </div>  -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- view analysis modalbox -->
+
+<div class="modal d-block" *ngIf="viewModal">
+  <div class="modal-overlay overlayNew" (click)="viewModal=false">
+
+  </div>
+
+  <div class="modal-dialog  dateModal" role="document">
+    <div class="modal-content">
+      <div class="modal-header pb-0 pt-1">
+        <button type="button" class="close" (click)="viewModal=false">
+          <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body pl-0">
+        <div class="imagclss">
+          <img src="../../assets/img/analysis.jpg" class="imgpopup w-100">
+        </div>
+        <div class="row">
+
+          <div class="roisection col-md-6 border-right">
+            <button routerLink="/estate/analysis" class="btn btn-primary">ROI </button>
+
+          </div>
+          <div class="marketsection col-md-6">
+            <button class="btn btn-secondary" routerLink="/estate/markit/cap">Market Cap</button>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- <div class="modal-footer maxButton justify-content-start">
+        <button type="button" class="btn btn-primary" (click)="viewModal=false">Terminate Now</button>
+        <button type="button" class="btn btn-secondary" (click)="viewModal=false">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- roi modal -->
+
+<!-- <div class="modal d-block" *ngIf="roiModal">
+  <div class="modal-overlay overlayNew" (click)="roiModal=false">
+
+  </div>
+
+  <div class="modal-dialog  dateModal" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="roiModal=false">
+          <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        ROI
+      </div>
+      <div class="modal-footer maxButton justify-content-start">
+        <button type="button" class="btn btn-primary" (click)="roiModal=false">Terminate Now</button>
+        <button type="button" class="btn btn-secondary" (click)="roiModal=false">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- MARKET modal -->
+
+<!-- <div class="modal d-block" *ngIf="marketModal">
+  <div class="modal-overlay overlayNew" (click)="marketModal=false">
+
+  </div>
+
+  <div class="modal-dialog  dateModal" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="marketModal=false">
+          <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        MARKET
+      </div>
+      <div class="modal-footer maxButton justify-content-start">
+        <button type="button" class="btn btn-primary" (click)="marketModal=false">Terminate Now</button>
+        <button type="button" class="btn btn-secondary" (click)="marketModal=false">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->

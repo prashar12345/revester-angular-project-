@@ -1,0 +1,270 @@
+<div class="main mt-3">
+    <div class="text-center ">
+        <h3 class="hedding">Market Capitalization for Real Estate</h3>
+        <h3 class="hedding">(Market Cap or Cap Rate)</h3>
+
+    </div>
+
+    <div class="row mx-0">
+
+
+        <div class="col-md-12">
+            <div class="bannerdiv">
+                <img src="../../../assets/img/marketcap.jpg" class="newsimg " />
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mt-3">
+
+
+        <div class="container">
+            <div class="row cards">
+
+                <ng-container>
+                    <div class="col-md-6 mt-4">
+                        <div claSS=" ">
+
+                            <div class="containt">
+                                <p>Example</p>
+                                <h3 class="heddingcls">property 1</h3>
+                                <label class="mt-2"> Rent Collection per year</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control"
+                                        [(ngModel)]="rentcollection"  (change)="somethingChanged()">
+                                </div>
+
+
+                                <label class="mt-2"> Other - Laundry, Parking, etc.:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control" 
+                                        (change)="somethingChanged()" [(ngModel)]=" LaundryParking">
+                                </div>
+
+
+                                <label class="mt-2"> Net Profit:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input *ngIf="!NetProfit" type="" class="form-control">
+                                    <input  *ngIf="NetProfit"type="" class="form-control"  [(ngModel)]="NetProfit"  (change)="somethingChanged()">
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <div claSS=" ">
+
+                            <div class="containt">
+
+                                <h3 class="heddingcls">Operating Expenses</h3>
+                                <label class="mt-2"> Mortgage/Loan Payment:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" placeholder=" None paid cash" disabled class="form-control"
+                                        [(ngModel)]="MortgageLoan" (change)="somethingget()">
+                                </div>
+
+                                <label class="mt-2"> Real Estate Taxes:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control" 
+                                        [(ngModel)]=" RealEstate " (change)="somethingget()">
+                                </div>
+
+                                <label class="mt-2"> Insurance:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control" 
+                                        [(ngModel)]="Insurance" (change)="somethingget()">
+                                </div>
+
+                                <label class="mt-2"> Utilities:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control"  [(ngModel)]="Utilities"
+                                        (change)="somethingget()">
+                                </div>
+
+                                <label class="mt-2"> Vacancy - 7% of Rents</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control" [(ngModel)]="next"
+                                        (change)="somethingget()">
+                                </div>
+
+                                <label class="mt-2"> Other - legal,
+                                    Exterminator, etc.</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control"  [(ngModel)]="Other"
+                                        (change)="somethingget()">
+                                </div>
+
+                                <label class="mt-2"> Total Operating Expenses </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control" 
+                                        [(ngModel)]="OperatingExpenses">
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <label class="mt-2"> Net Operating Income = Profit - Operating Expenses</label>
+                        <div *ngIf="!NetProfit ">
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="" class="form-control"
+                                  >
+                            </div>
+
+
+                        </div>
+                        <div class="form-control" *ngIf="NetProfit"> ${{NetProfit |number}} - ${{OperatingExpenses |
+                            number}}= ${{NetProfit-OperatingExpenses | number}} Taxes (ex. 28%) =<-
+                                ${{totaloperatingincom()| number:'1.0-0' }}>
+                        </div>
+                        <label class="mt-2"> Total:</label>
+                        <div class="input-group" *ngIf="!totalamount">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control">
+                        </div>
+                        <div class="input-group" *ngIf="totalamount">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control" [(ngModel)]="totalamount">
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="col-md-12">
+                        <h3 class="heddingcls">Market Cap or Cap Rate</h3>
+                    </div>
+                    <div class="mb-4">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+
+                        <label class="mt-2"> Riskier Property:</label>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control"  [(ngModel)]="RiskierProperty">
+
+                        </div>
+
+                        <label class="mt-2"> Moderate Risk</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control"  [(ngModel)]=" ModerateRisk">
+
+                        </div>
+
+
+                        <label class="mt-2"> Safer Property:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control" [(ngModel)]=" SaferProperty">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="mt-2"> NOI </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control"  [(ngModel)]="RiskierPropertyNOI"
+                                (change)="RiskierPropertyNOIChange()">
+
+                        </div>
+
+
+
+                        <label class="mt-2"> NOI </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control"  [(ngModel)]=" ModerateRiskNOI"
+                                (change)="ModerateRiskNOIChange()">
+
+                        </div>
+
+
+                        <label class="mt-2"> NOI </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" class="form-control"  [(ngModel)]=" SaferPropertyNOI"
+                                (change)="SaferPropertyNOIChange()">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 pb-5">
+                        <label class="mt-2"> Purchase Price = </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input *ngIf="!RiskierPurchase" type="" class="form-control"
+                                >
+                            <div class="form-control" *ngIf="RiskierPurchase">{{RiskierPurchase }} x 100
+                                ={{totalpurchase()|
+                                number}}%</div>
+
+                        </div>
+
+
+                        <label class="mt-2"> Purchase Price = </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" *ngIf="!ModeratePurchase" class="form-control"
+                               >
+                            <div class="form-control" *ngIf="ModeratePurchase">{{ModeratePurchase }} x 100
+                                ={{totalpurchase2()| number}}%</div>
+
+                        </div>
+
+
+                        <label class="mt-2"> Purchase Price = </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="" *ngIf="!SaferPropertyPurchase" class="form-control"
+                                [(ngModel)]="SaferPropertyPurchase">
+                            <div class="form-control" *ngIf="SaferPropertyPurchase">{{SaferPropertyPurchase }} x 100
+                                ={{totalpurchase3()| number}}%</div>
+
+                        </div>
+
+                    </div>
+
+
+                </ng-container>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

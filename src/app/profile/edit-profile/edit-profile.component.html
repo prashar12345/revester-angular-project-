@@ -1,0 +1,116 @@
+<div class="container profilecontainer py-3 mt-5">
+    <div class="card shadow">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="font-weight-bold">Edit Profile</h5>
+
+            <a routerLink="/auth/change-password">
+                Change Password
+            </a>
+        </div>
+
+        <div class="card-body">
+            <form action="" [formGroup]="Form" (submit)="onSubmit()">
+                <div class="form-row">
+                    <div class="col-md-12 text-center mb-3">
+                        <label class="edit-profile-input">
+                            <img src="{{userImg(data?.image)}}" class="shadow" />
+
+                            <i class="material-icons">
+                                border_color
+                            </i>
+                            <input type="file" (change)="uploadImage($event)"
+                                accept="image/jpg, image/jpeg, image/png,.png,.jpg,.jpeg"
+                                [ngModelOptions]="{standalone: true}" [(ngModel)]="imageBase" class="d-none" />
+                        </label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="" class="isRequired">First Name</label>
+                        <input formControlName="firstName" type="" class="form-control" />
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="" class="isRequired">Last Name</label>
+                        <input formControlName="lastName" type="" class="form-control" />
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="">Email</label>
+                        <div class="text">{{data?.email}}</div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="">Role</label>
+                        <div class="text">{{data?.role}}</div>
+                    </div>
+                    <!-- 
+                    <div class="col-md-12">
+                        <div class="formrow">
+                            <h1>Email Notification Preperences </h1>
+                            <p>Send me email notification for transactions:</p>
+                        </div>
+                            <div class="form-group form-check">
+                              <input type="checkbox" formControlName="email_assigned_me" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Assigned to me</label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" formControlName="email_not_assigned_transactions" class="form-check-input" id="exampleCheck2">
+                                <label class="form-check-label" for="exampleCheck2">Not assigned to any transaction coordinator</label>
+                              </div>
+                              <div class="formrow">
+                              <h1>Chat Notification Preferences</h1>
+                              </div>
+                              <div class="form-group form-check">                    
+                                <input type="checkbox"  formControlName="email_notification_chat"class="form-check-input" id="exampleCheck3">
+                                <label class="form-check-label" for="exampleCheck3">Send notification emails for chats received when I'm offline</label>
+                              </div>
+                           
+                    </div> -->
+
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-primary">Save</button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- 
+    <div class="card mt-3">
+        <h5 class="card-header topRow">Email Calendar</h5>
+        <div class="card-body">
+          <h4 class="card-title">Accounts</h4>
+          <p class="card-text">Connect your email account with preclose to seamlessly send and receive emails directly from your transactions.</p>
+          <div class="flxRow d-flex mb-2">
+              <div class="user pr-1">
+                  connect with:
+              </div>
+              <div class="userButton">
+                <button type="button" class="btn btn-outline-primary">Google</button>
+                <button type="button" class="btn btn-primary">OTHER EMAIL</button>
+            </div>
+          </div>
+          <div class="edit">
+              <h3 class="mb-0 pt-2">Signatures</h3>
+              <p>Create on email signatures to include in your emails.</p>
+              <button type="button" class="btn btn-primary">CREATE YOUR FIRST EMAIL SIGNATURE</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-header">
+         <h2 class="headingRow mb-0"> Dotloop</h2>
+        </div>
+        <div class="card-body image text-center">
+         <img src="https://higherlogicdownload.s3.amazonaws.com/VAR/be28d06c-53e5-4392-981a-25540f0e2221/UploadedImages/300_dotloop_blue.png">
+        <div class="buttonCard mt-2">
+            <button type="button" class="btn btn-primary">Connect</button>
+        </div>
+        </div>
+      </div>
+</div> -->

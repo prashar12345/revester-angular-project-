@@ -1,0 +1,85 @@
+
+
+<div class="contatainer mx-0">
+    <div class="row mx-0">
+        <div class="col-md-12">
+            <img src="https://static.vecteezy.com/system/resources/previews/006/419/004/large_2x/home-buyers-meet-and-negotiate-with-real-estate-agents-about-renting-buying-home-real-estate-agent-negotiate-talk-about-the-terms-of-the-home-purchase-agreement-and-asked-customer-to-sign-contract-free-photo.jpg" class=" bannerimg w-100">
+        </div>
+        <div class="col-md-12 mt-3">
+            <div class="property_headding text-center">
+                <h3 class="fontclass"> Selling area  </h3>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row mx-0">
+       
+        <div class="col-md-6">
+            <div class="border p-3 sellingtext">
+                <h3 class="detalhedding">Address
+                </h3>
+                <div class="listingclss">
+                    <li> Full address - <b>{{SellingData[0].address?.oneLine}} </b></li>
+                    <li> Locality- <b>{{ SellingData[0].address?.locality}} </b></li>
+                    <li> country- <b>{{ SellingData[0].address?.country}} </b></li>
+                    <li> postal- <b>{{ SellingData[0].address?.postal1}} </b></li>
+                </div>
+
+            </div> 
+
+        </div>
+        <div class="col-md-6">
+            <div class="border p-3 sellingtext">
+                <h3 class="detalhedding">Area
+                </h3>
+                <div class="listingclss">
+                    <li> TaxCodeArea- <b>{{ SellingData[0]?.area?.taxCodeArea}} </b></li>
+                    <li> MunName- <b>{{ SellingData[0]?.area?.munName}} </b></li>
+                    <li> SubdName- <b>{{ SellingData[0]?.area?.subdName}} </b></li>
+                    <li> munCode- <b>{{ SellingData[0]?.area?.munCode}} </b></li>
+                </div>
+
+            </div> 
+
+        </div>
+    </div>
+
+    <div class="row mx-0">
+        <div class="col-md-12 Basicdetailclss">
+            <h3 class="ARVclss"> Sale history</h3>
+<table>
+    <tr>
+        <th>Sequence</th>
+        <th>Buyer name</th>
+        <th>sellerName</th>
+        <th>Sell amount</th>
+        <th>Sell saleRecDate</th>
+        <th>Company Name</th>
+        <th>mortgage amount</th>
+        <th>perbed amount</th>
+        <th>per size unit  </th>
+      </tr>
+      
+      <ng-container   *ngFor="let item of SellingData[0].saleHistory">
+      
+      <tr>
+        <td>{{item.sequence}}</td>
+        <td>{{item.buyerName}}</td>
+        <td>{{item.sellerName}}</td>
+        <td>{{item.amount.saleAmt}}</td>
+        <td>{{item.amount.saleRecDate}}</td>
+        <td>{{item.title.companyName}}</td>
+        <td>{{item.mortgage.FirstConcurrent.amount}}</td>
+        <td>{{item.calculation.priceperbed}}</td>
+        <td>{{item.calculation.pricepersizeunit}}</td>
+      </tr>
+    </ng-container>
+</table>
+
+
+        </div>
+       
+    </div>
+</div>

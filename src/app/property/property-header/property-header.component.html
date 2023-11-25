@@ -1,0 +1,60 @@
+<nav class="navbar mainHeader navbar-expand-lg navbar-light bg-white property-header">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 *ngIf="!this.appStateSvc.stateData.isLoggedIn"class="welcomclss pl-5 ml-4">Welcome Guest,
+        </h3>
+          <h3 *ngIf="this.appStateSvc.stateData.isLoggedIn" class="welcomclss pl-5 ml-4">
+            Welcome {{appStateSvc.stateData.user.fullName}}</h3>
+          <!-- <a  routerLinkActive="router-link-active" *ngIf="!this.appStateSvc.stateData.isLoggedIn" class="linkclss">Login</a> -->
+          <!-- <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" class="linkclss">Login</a><span class="slash">/</span><a
+            [routerLink]="['/auth/signup']" class="linkclss mr-2">Signup</a> -->
+      </div>
+   
+    </div>
+   
+
+ 
+<div class="row">
+  <div class="col-md-12 navclss">
+    <button class="navbar-toggler" (click)="toggle=!toggle" type="button" data-toggle="collapse"
+      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button><br>
+    <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'active show':toggle}">
+     
+
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active"   [routerLink]="['/property-dash']">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "  (click)="GotoSelling()" >Selling Area</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "   (click)="GotoPotential()">Pontentive ARV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "   [routerLink]="['estate/budgeting']">Create Budget</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "   (click)="GotoLocation()" >Locate </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled"   [routerLink]="['/']">Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled"   [routerLink]="['/']">Share Files</a>
+        </li>
+      </ul>
+
+  </div>
+</div>
+    
+    </div>
+  </div>
+
+</nav>
+<div class="nullheader">
+
+</div>

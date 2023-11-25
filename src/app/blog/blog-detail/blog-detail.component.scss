@@ -1,0 +1,56 @@
+.containtImag {
+    border-radius: 20px;
+    height: 500px;
+    width: 493px;
+    object-fit: cover;
+    margin-top: -132px;
+}
+
+img.Imag {
+    border-radius: 20px;
+    width: 493px;
+    object-fit: cover;
+    margin-top: 33px;
+}
+
+p.paraclass {
+    line-height: 28px;
+    color: #113a4f;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.secondbnner {
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 20px;
+    height: 400px;
+}
+
+.banner {
+    border-radius: 20px;
+    height: 400px;
+    object-fit: cover;
+
+}
+
+.catName {
+    font-size: 20px;
+}
+
+.container.blogWraper {
+    min-height: calc(100vh - 154px) !important;
+}
+
+.hedding {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 55px;
+    color: #F08519;
+    text-transform: capitalize;
+}
+
+.blogWraper {
+    min-height: calc(100vh - 141px);
+    padding-top: 50px;
+}

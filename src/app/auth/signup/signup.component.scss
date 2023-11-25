@@ -1,0 +1,99 @@
+button.form-control.login {
+    background: #0E3D53;
+    color: #ffff;
+    border-radius: 12px 0px 12px 0px;
+    max-width: 407px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+
+}
+.spanclss{
+    color: #F08519;
+}
+.maindiv {
+    box-shadow: 0px 0px 9px 0px #9e9e9ee6;
+    border-radius: 12px 0px 12px 0px;
+    padding: 17px 49px;
+    margin: auto;
+    background: #ffff;    
+    max-width: 480px;
+    position: relative;
+}
+.tital{
+    color: #F08519;
+}
+
+.container.d-flex:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgb(0 0 0 / 52%);
+}
+.container {
+    height: 100vh;
+    background-size: cover;    
+    max-width: 100%;
+    background-image: url('../../../assets/img/Modern-Home-Banner.jpg');
+}
+
+.validclass{
+    color:red;
+    font-size: 11px;
+}
+
+body.mat-typography {
+    background-image: url("../../../assets/img/banner.png");
+}
+
+button.btn.btn-secondary.okkbtn {
+    width: 100%;
+    border-radius: 17px;
+    background: #174662;
+}
+
+.close{
+    color: #F08519;
+}
+
+.tital{
+    font-size: 21px;
+    font-weight: 500;
+    color: #F08519;
+   
+}
+
+i.fa.fa-eye-slash {
+    position: absolute;
+    right: 26px;
+    top: 11px;
+}
+
+i.fa.fa-eye {
+    position: absolute;
+    right: 26px;
+    top: 11px;
+}
+
+.paraclass{
+    font-size: 15px;
+}
+.click{
+    color: #F08519 !important;
+}
+.modal-header {
+    border: none;
+}
+
+.modal-footer.maxButton.justify-content-start {
+    border: none;
+}
+
+.greentik{
+    width: 100%;
+    max-width: 37px;
+    margin-bottom: 22px;
+}

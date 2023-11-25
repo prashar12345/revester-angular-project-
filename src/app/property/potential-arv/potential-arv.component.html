@@ -1,0 +1,72 @@
+
+
+<div class="contatainer mx-0">
+    <div class="row mx-0">
+        <div class="col-md-12">
+            <img src="https://media.istockphoto.com/photos/businessman-holding-sign-clock-concept-business-time-is-money-picture-id1012845488?b=1&k=20&m=1012845488&s=170667a&w=0&h=f4cIAr3DAkHi9vINTg1URdQx3XQx1gZUcArA5gASHrs=" class=" bannerimg w-100">
+        </div>
+        <div class="col-md-12 mt-3">
+            <div class="property_headding text-center">
+                <h3 class="fontclass">  Potential ARV  </h3>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row mx-0">
+       
+        <div class="col-md-6">
+            <div class="border p-3 sellingtext">
+                <h3 class="detalhedding">Address
+                </h3>
+                <div class="listingclss">
+                    <li> Full address - <b>{{PotentialARV[0].address?.oneLine}} </b></li>
+                    <li> Locality- <b>{{ PotentialARV[0].address?.locality}} </b></li>
+                    <li> country- <b>{{ PotentialARV[0].address?.country}} </b></li>
+                    <li> postal- <b>{{ PotentialARV[0].address?.postal1}} </b></li>
+                </div>
+
+            </div> 
+
+        </div>
+        <div class="col-md-6">
+            <div class="border p-3 sellingtext">
+                <h3 class="detalhedding"> ARV
+                </h3>
+                <div class="listingclss">
+                    <li> scr- <b>{{ PotentialARV[0]?.avm?.scr}} </b></li>
+                    <li> value- <b>{{ PotentialARV[0]?.avm?.value}} </b></li>
+                    <li> high- <b>{{ PotentialARV[0]?.avm?.high}} </b></li>
+                    <li> low- <b>{{ PotentialARV[0]?.avm?.low}} </b></li>
+                </div>
+
+            </div> 
+
+        </div>
+    </div>
+
+    <div class="row mx-0">
+        <div class="col-md-12 Basicdetailclss">
+            <h3 class="ARVclss"> Owner history</h3>
+<table>
+    <tr>
+        <th>first name</th>
+        <th>last name</th>
+    
+      </tr>
+      
+      <ng-container   *ngFor="let item of PotentialARV[0].owner.owner1">
+      
+      <tr>
+        <td>{{item.firstnameandmi}}</td>
+        <td>{{item.lastname}}</td>
+      </tr>
+    </ng-container>
+</table>
+
+
+        </div>
+       
+    </div>
+</div>

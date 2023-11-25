@@ -1,0 +1,148 @@
+<div class="container mt-4" *ngIf="loader">
+    <!-- <h2>New Private Bath Near Downtown Hotspots(sh Room)</h2> -->
+    <h2 class="shine"></h2>
+    <!-- <h4> 4.85 (40 reviews) · Atlanta,GA,United States</h4> -->
+    <h4 class="shine"></h4>
+    <div class="row">
+        <div class="col-md-12 w-100 bannerimg shine">
+            <!-- <img src="" class="w-100 bannerimg shine"> -->
+        </div>
+    </div>
+
+    <div class="row mt-3 ">
+        <div class="col-md-2 p-1  ">
+            <div class="shine detailimgcls">
+
+            </div>
+            <!-- <img src="" class="w-100 detailimgcls shine"> -->
+        </div>
+        <div class="col-md-2 p-1 ">
+            <div class="shine detailimgcls">
+
+            </div>
+            <!-- <img src="" class="w-100 "> -->
+        </div>
+        <div class="col-md-2 p-1 ">
+            <div class="shine detailimgcls">
+
+            </div>
+            <!-- <img src="" class="w-100  "> -->
+        </div>
+        <div class="col-md-2 p-1 ">
+            <div class="shine detailimgcls">
+
+            </div>
+            <!-- <img src="" class="w-100 "> -->
+        </div>
+        <div class="col-md-2 p-1 ">
+            <div class="shine detailimgcls">
+
+            </div>
+            <!-- <img src="" class="w-100 "> -->
+        </div>
+        <div class="col-md-2 p-1 ">
+            <div class="shine detailimgcls">
+
+            </div>
+            <!-- <img src="" class="w-100 detailimgcls shine"> -->
+        </div>
+       
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="border-bottom">
+                <h3 class="shine"></h3>
+                <!-- <li>2 guests, 1 beds, 1 bedrooms, 1 bathrooms</li> -->
+                <li class="shine"></li>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="border-bottom mt-3 ml-0">
+                <!-- <h3>Great check-in experience</h3> -->
+                <h3 class="shine"></h3>
+                <!-- <p>95% of recent guests gave the check-in process a 5-star rating.</p> -->
+                <p class="shine"></p>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="border-bottom mt-3 ml-0">
+                <!-- <h3>Newly renovated duplex at the lower level. 1 bedroom with a private bath. Another bedroom is also
+                listed on Airbnb. New Full kitchen with SS appliances, granite countertops, stove, refrigerator with
+                i...</h3> -->
+                <h3 class="shine" ></h3>
+                <p class="shine"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <p>property-detail works!</p> -->
+<div *ngFor="let item of PropertyData">
+    <div class="container mt-4">
+        <!-- <h2>New Private Bath Near Downtown Hotspots(sh Room)</h2> -->
+        <h2>{{ item.name }}</h2>
+        <!-- <h4> 4.85 (40 reviews) · Atlanta,GA,United States</h4> -->
+        <h4>{{item.smallAddress}}</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="../../assets/img/home6.jpg" class="w-100">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <img src="../../assets/img/innerhome2.jpg" class="w-100">
+            </div>
+            <div class="col-md-2">
+                <img src="../../assets/img/innerhome2.jpg" class="w-100">
+            </div>
+            <div class="col-md-2">
+                <img src="../../assets/img/innerhome3.jpg" class="w-100">
+            </div>
+            <div class="col-md-2">
+                <img src="../../assets/img/innerhome5.png" class="w-100">
+            </div>
+            <div class="col-md-2">
+                <img src="../../assets/img/innerhome6.jpg" class="w-100">
+            </div>
+            <div class="col-md-2">
+                <img src="../../assets/img/innerhome6.jpg" class="w-100">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="border-bottom">
+                    <h3>Private Room In Home</h3>
+                    <!-- <li>2 guests, 1 beds, 1 bedrooms, 1 bathrooms</li> -->
+                    <li>{{item.bathfixtures}}{{item.bathsfull}}{{item.bathstotal}}{{item.beds}}{{item.roomsTotal}}</li>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="border-bottom mt-3 ml-0">
+                    <!-- <h3>Great check-in experience</h3> -->
+                    <h3>Full Address</h3>
+                    <!-- <p>95% of recent guests gave the check-in process a 5-star rating.</p> -->
+                    <p>{{item.address}}</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="border-bottom mt-3 ml-0">
+                    <!-- <h3>Newly renovated duplex at the lower level. 1 bedroom with a private bath. Another bedroom is also
+                    listed on Airbnb. New Full kitchen with SS appliances, granite countertops, stove, refrigerator with
+                    i...</h3> -->
+                    <h3>Full Summary</h3>
+                    <p>{{item.fullSummary}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

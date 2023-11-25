@@ -1,0 +1,261 @@
+<!-- <div class="main d-flex">
+    <div class="container m-auto">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 text-center">
+                
+                
+                <div class="imgclass">
+                    <img src="../../assets/img/home6.jpeg" class="homeimg">
+                </div>
+
+                <h3 class="commingcss text-center mt-3 mb-2">
+                    Coming Soon
+                </h3>
+
+                <div class="text-center">
+                    <div class="wrapper text-center counterWarpper">
+                        <div class="description d-flex justify-content-between">
+                            <p>Days</p>
+                            <p>Hours</p>
+                            <p>Minutes</p>
+                            <p>Seconds</p>
+                        </div>
+                        <div class="timingdiv mb-5 mt-3">
+                            <countdown [config]="config" class="timer"></countdown>
+                        </div>
+                    </div>
+                </div>
+
+                   
+             
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="maincol">
+                    <div class="hedintxclss">
+                        
+                        <div class="logoimgclss">
+                            <img src="../../assets/img/VEStoree-PNG.png" class="w-100 imgclss">
+                        </div>
+                    </div>
+
+                    <div class="paraclass">
+                        <p>HELPING REAL ESTATE INVESTORS TAKE THE HARDSHIP OUT OF FINDING AND FIXING </p>
+                        <p>GUT REHAB FLIPS- APARTMENT BUILDING RENO'S- LAND DEVELOPMENT </p>
+                        <p>INCREASES YOUR CHANCES OF POSITIVE REAL ESTATE ROI</p>
+                    </div>
+
+                    <div>
+                        <button class="subclassbtn"  (click)="openCard()" >
+                            <i class="fa fa-envelope"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- model -->
+<div class="modal d-block subsModal" *ngIf="cardModal">
+    <div class="modal-overlay overlayNew" (click)="cardModal=false"></div>
+    <div class="modal-dialog  dateModal " role="document">
+        <div class="modal-content">
+            <button type="button" class="close" (click)="cardModal=false">
+                <span aria-hidden="true">&times;</span> </button>
+            <div class="modal-body p-0">
+
+
+                <form [formGroup]="registerForm">
+                    <h3 class="text-center Subscribetx">Subscribe</h3>
+
+                    <div class="">
+                        <div class="subscription mb-3 ">
+                            <input type="text" placeholder="Enter Your Name" type="text" formControlName="name" required
+                                class="form-control">
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>
+                        </div>
+
+                        <div class="subscription mb-3 ">
+                            <input type="email" placeholder="Enter Your Email" formControlName="email" required
+                                class="form-control">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email || f.email.errors?.pattern">Email
+                                    is invalid</div>
+                            </div>
+                        </div>
+
+                        <div class="subscription mb-3 ">
+                            <input type="number" placeholder="Enter Your Phone No." formControlName="phone" required
+                                class="form-control">
+                            <div>
+                                <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.phone.errors.required">Phone No is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <button class="subBtn" (click)="subscribe()">
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal d-flex" *ngIf="subsModal">
+    <div class="modal-overlay overlayNew" (click)="subsModal=false"></div>
+    <div class="modal-dialog  dateModal " role="document">
+        <div class="modal-content thanks">
+            <div class="modal-body text-center">
+                <div>
+                    <img src="../../assets/img/greentik.png" class="greentik w-100">
+                </div>
+                <span class="thanks">Thanks,</span>
+                <div class="message">
+                    You have Subscribed<br> Successfully !<br>
+                    You will receive confirmation mail soon.
+                </div>
+              
+
+                <!-- <div class="text-center">
+                    <div class="wrapper text-center counterWarpper">
+                        <div class="description d-flex justify-content-between">
+                            <p>Days</p>
+                            <p>Hours</p>
+                            <p>Minutes</p>
+                            <p>Seconds</p>
+                        </div>
+                        <div class="timingdiv mb-5 mt-3">
+                            <countdown [config]="config" class="timer"></countdown>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class=" text-right">
+
+                <button type="button" class="btn btn-secondary okkbtn mr-4 mb-2" (click)="subsModal=false">ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="main d-flex">
+
+    <div class="row mx-0 w-100 mainRow">
+        <div class="col-lg-6 col-md-12 detailclss d-flex">
+
+
+
+            <div class="maincol m-auto">
+                <div class="hedintxclss">
+
+                    <div class="logoimgclss">
+                        <img src="../../assets/img/VEStoree-PNG.png" class="w-100 imgclss mt-2">
+                    </div>
+                </div>
+
+                <div class="paraclass">
+                    <p>HELPING REAL ESTATE INVESTORS TAKE THE HARDSHIP OUT OF FINDING AND FIXING </p>
+                    <p>GUT REHAB FLIPS- APARTMENT BUILDING RENO'S- LAND DEVELOPMENT </p>
+                    <p>INCREASES YOUR CHANCES OF POSITIVE REAL ESTATE ROI</p>
+                </div>
+
+                <h3 class="commingcss text-center mt-2 mb-2">
+                    Coming Soon
+                </h3>
+
+                <div class="text-center">
+                    <div class="wrapper text-center counterWarpper">
+                        <div class="description d-flex justify-content-between">
+                            <p>Days</p>
+                            <p>Hours</p>
+                            <p>Minutes</p>
+                            <p>Seconds</p>
+                        </div>
+                        <div class="timingdiv mb-3 mt-3">
+                            <countdown [config]="config" class="timer"></countdown>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div>
+                    <button class="subclassbtn" (click)="openCard()">
+                        <i class="fa fa-envelope"></i>
+                    </button>
+                </div> -->
+                <div class="row text-center mx-auto">
+
+                    <div class="col-md-12 mx-auto ">
+                        <div class="text-center forclstyle">
+
+
+                            <form>
+                                <div [formGroup]="registerForm" class="form-group ">
+
+                                    <input type="email" class="form-control mb-0" formControlName="email" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Enter email" >
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email || f.email.errors?.pattern">Email
+                                                is invalid</div>
+                                        </div>
+                                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                        anyone else.</small> -->
+                                </div>
+
+                                <button type="submit" (click)="subscribe()" class="btn btn-primary Submitstyl mb-2">Notify Me</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="col-lg-6 col-md-12 comeBg">
+
+            <div class="imgclass">
+                <!-- <img src="../../assets/img/commingsoon.webp" class="homeimg"> -->
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>

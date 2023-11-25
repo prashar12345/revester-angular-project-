@@ -1,0 +1,463 @@
+<form [formGroup]="propertySoftPhase_vi" novalidate (submit)="onSubmit()">
+    <table class="table table-bordered">
+        <thead class="">
+            <tr class="">
+                <th>Phase VII -
+                    Bedrooms, etc.</th>
+                <th>Labor</th>
+                <th>Materials</th>
+                <th>Time to
+                    Complete</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Doors</td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="doors_labor_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.doors_labor_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.doors_labor_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="doors_material_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.doors_material_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.doors_material_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="doors_time_to_complete" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.doors_time_to_complete.errors" class="invalid-feedback">
+                        <div *ngIf="f.doors_time_to_complete.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="doors_notes" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.doors_notes.errors" class="invalid-feedback">
+                        <div *ngIf="f.doors_notes.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Drywall</td>
+
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="drywall_labor_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.drywall_labor_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.drywall_labor_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="drywall_material_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.drywall_material_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.drywall_material_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="drywall_time_to_complete" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.drywall_time_to_complete.errors" class="invalid-feedback">
+                        <div *ngIf="f.drywall_time_to_complete.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="drywall_notes" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.drywall_notes.errors" class="invalid-feedback">
+                        <div *ngIf="f.drywall_notes.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Trim</td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="trim_labor_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.trim_labor_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.trim_labor_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="trim_material_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.trim_material_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.trim_material_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="trim_time_to_complete" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.trim_time_to_complete.errors" class="invalid-feedback">
+                        <div *ngIf="f.trim_time_to_complete.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="trim_notes" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.trim_notes.errors" class="invalid-feedback">
+                        <div *ngIf="f.trim_notes.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>Interior Paint</td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="Interior_paint_labor_cost" class="" placeholder="$"
+                            id="text" class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.Interior_paint_labor_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.Interior_paint_labor_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="Interior_paint_material_cost" class="" placeholder="$"
+                            id="text" class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.Interior_paint_material_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.Interior_paint_material_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="Interior_paint_time_to_complete" class="" placeholder=""
+                            id="text" class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.Interior_paint_time_to_complete.errors" class="invalid-feedback">
+                        <div *ngIf="f.Interior_paint_time_to_complete.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="Interior_paint_notes" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.Interior_paint_notes.errors" class="invalid-feedback">
+                        <div *ngIf="f.Interior_paint_notes.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>Lighting</td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="lighting_labor_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.lighting_labor_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.lighting_labor_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="lighting_material_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.lighting_material_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.lighting_material_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="lighting_time_to_complete" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.lighting_time_to_complete.errors" class="invalid-feedback">
+                        <div *ngIf="f.lighting_time_to_complete.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="lighting_notes" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.lighting_notes.errors" class="invalid-feedback">
+                        <div *ngIf="f.lighting_notes.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>Stairs</td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="stairs_labor_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.stairs_labor_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.stairs_labor_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="stairs_material_cost" class="" placeholder="$" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.stairs_material_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.stairs_material_cost.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="stairs_time_to_complete" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.stairs_time_to_complete.errors" class="invalid-feedback">
+                        <div *ngIf="f.stairs_time_to_complete.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="stairs_notes" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.stairs_notes.errors" class="invalid-feedback">
+                        <div *ngIf="f.stairs_notes.errors.required">current property
+                            type is
+                            required</div>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Flooring <div class="boder mt-5">Vinyl</div>
+                    <div class="boder1 ">Hardwood</div>
+                    <div class="boder1 ">Tile</div>
+                    <div class="boder1 ">Laminate</div>
+                    <div class="boder1 ">Carpet</div>
+                    <div class="boder1 mb-4">Other 
+                        <!-- <i class="fa fa-plus" aria-hidden="true" (click)=addmoreinput()></i> -->
+                        <div formArrayName="new"
+                            *ngFor="let time of propertySoftPhase_vi.controls.new?.value; let i = index; trackBy:trackByFn">
+
+                            <div [formGroupName]="i">
+                <td>
+
+
+                    <input type="text" formControlName="other_labor_cost" class="form-control" placeholder=""
+                        class="form-control">
+
+                </td>
+                </div>
+                </div>
+                </div>
+                </td>
+                <td>
+
+                    <div class=" form-group mb-0">
+                        <input type="number" class=""  placeholder="$" formControlName="flooring_labor_cost" id="text" class="inputclss form-control">
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" class="" placeholder="$" formControlName="flooring_material_cost" id="text" class="inputclss form-control">
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" class="" placeholder=""  formControlName="flooring_time_to_complete" id="text" class="inputclss form-control">
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" class="" placeholder="" formControlName="flooring_notes" id="text" class="inputclss form-control">
+                    </div>
+
+                </td>
+            </tr>
+            <tr formArrayName="other"
+                *ngFor="let time of propertySoftPhase_vi.controls.other?.value; let i = index; trackBy:trackByFn">
+
+                <ng-container [formGroupName]="i">
+
+                    <td>{{i==0?'Other':''}} <i class="fa fa-plus" *ngIf="i==0" aria-hidden="true" (click)=addmore()></i>
+                    </td>
+
+
+                    <td>
+
+                        <div class="form-group mb-0">
+                            <input type="number" formControlName="other_labor_cost" class="" placeholder="$" id="text"
+                                class="inputclss form-control">
+                        </div>
+                        <div *ngIf="submitted && f.other_labor_cost.errors" class="invalid-feedback">
+                            <div *ngIf="f.other_labor_cost.errors.required">other_labor_cost is required
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="form-group mb-0">
+                            <input type="number" formControlName="other_material_cost" class="" placeholder="$"
+                                id="text" class="inputclss form-control">
+                        </div>
+                        <div *ngIf="submitted && f.other_material_cost.errors" class="invalid-feedback">
+                            <div *ngIf="f.other_material_cost.errors.required">other_material_cost is required
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="form-group mb-0">
+                            <input type="text" formControlName="other_time_to_complete" class="" placeholder=""
+                                id="text" class="inputclss form-control">
+                        </div>
+                        <div *ngIf="submitted && f.other_time_to_complete.errors" class="invalid-feedback">
+                            <div *ngIf="f.other_time_to_complete.errors.required">other_time_to_complete is required
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="form-group mb-0">
+                            <input type="text" formControlName="other_notes" class="" placeholder="" id="text"
+                                class="inputclss form-control">
+                        </div>
+                        <div *ngIf="submitted && f.other_notes.errors" class="invalid-feedback">
+                            <div *ngIf="f.other_notes.errors.required">other_notes is required
+                            </div>
+                        </div>
+
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</form>

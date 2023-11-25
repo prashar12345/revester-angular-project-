@@ -1,0 +1,25 @@
+.left i {
+    margin-right: 8px;
+}
+.left {
+    background: #fff;
+}
+
+.left h1 {
+    font-size: 16px;
+    font-weight: 600;
+}
+.left h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f134f;
+}
+.left p {
+    font-size: 12px;
+    color: #0f134f;
+    cursor: pointer;
+    &.active{
+        font-weight: 600;
+        font-size: 14px;
+    }
+}

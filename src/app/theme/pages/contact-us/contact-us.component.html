@@ -1,0 +1,65 @@
+<!-- <p>contact-us works!</p> -->
+<!-- <p>subscription-plan works!</p> -->
+<div>
+    <div class="row mx-0">
+        <div class="col-md-12 text-center mainclass">
+            <!-- <h1 class=" mt-5 Contactclass">{{content.title}}</h1> -->
+            <h4 class="description ">{{description}} </h4>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="maindiv">
+        <div class="row">
+
+            <div class="col-md-8  mx-auto ">
+                <div class="card ">
+                    <h1 class=" mt-5 Contactclass text-center">Contact Us</h1>
+                    <div class="styleclass mb-3 ">
+
+                        <form [formGroup]="contactForm" novalidate (submit)="onSubmit()">
+
+                            <div class="col-md-12 mb-3">
+                                <input type="text" placeholder="Enter your First Name"
+                                    class="form-control fieldclass mb-2" formControlName="firstName" />
+                                <span *ngIf="submitted && f.firstName.errors" class="invalid-feedback ">First Name is
+                                    required </span>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <input type="text" placeholder="Enter your Last Name"
+                                    class="form-control fieldclass mb-2" formControlName="lastName" />
+                                <span *ngIf="submitted && f.lastName.errors" class="invalid-feedback ">Last Name is
+                                    required </span>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <input type="text" placeholder="Enter Email" class="form-control fieldclass mb-2"
+                                    formControlName="email" />
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email || f.email.errors?.pattern">Email
+                                        is invalid</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <input type="text" placeholder="Phone number" class="form-control fieldclass mb-2"
+                                    formControlName="phone" />
+                                <span *ngIf="submitted && f.phone.errors" class="invalid-feedback ">Phone number is
+                                    required </span>
+                            </div>
+                            <div class="Subscription text-center mt-4">
+                                <button class="subsbtn">Submit</button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

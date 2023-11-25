@@ -1,0 +1,78 @@
+.containtImag {
+    border-radius: 20px;
+    height: 500px;
+    width: 493px;
+    object-fit: cover;
+    margin-top: -132px;
+}
+
+img.Imag {
+    border-radius: 20px;
+    width: 493px;
+    object-fit: cover;
+    margin-top: 33px;
+}
+.secondbnner{
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 20px;
+    height: 400px;
+}
+.banner{
+    border-radius: 20px;
+    height: 400px;
+    object-fit: cover;
+
+}
+
+.hedding{
+    font-weight: 500;
+font-size: 18px;
+
+    
+}
+.viewbtn{
+    // background: #0E3D53;
+    color: #0E3D53;
+    padding: 5px 11px;
+}   
+.mainhedding{
+    font-weight: 700;
+    color: #0E3D53;
+}
+.shine{
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+    min-height: 14px;
+    border-radius: 5px;
+    color: transparent !important;
+  }
+  
+  strong.shine{
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .listingimg.shine{
+      height: 263px;
+
+  }
+  
+  
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+  .loader.shine {
+    height: 500px;
+    width: 493px;
+}
+
+@media screen and (min-width: 360px) and (max-width: 414px) {
+    img.containtImag {
+        display: none;
+    }
+}

@@ -1,0 +1,63 @@
+<div class="modal d-block" *ngIf="card_added == true ">
+    <div class="modal-overlay overlayNew" (click)="card_added=false"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="ok()">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body text-center">
+                <h3 class="">This section is only for subscription members</h3>
+                <!-- <p class="paraclass">we are delighted to inform you we received<br> your Card.</p> -->
+                <h3 class="hedding mt-3">If you want buy a subscription</h3>
+                <button type="button" class="btn btn-secondary Close" (click)="pay_subscription()">Click Here!</button>
+            </div>
+            <div class="modal-footer maxButton justify-content-end ">
+
+                <!-- <button type="button" class="btn btn-secondary Close" (click)="ok()">Ok</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal d-block" *ngIf="loginModal">
+    <div class="modal-overlay overlayNew"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content loginpopup">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="ok()">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body">
+                <h3 class="TEXTCLSSCSSS">You must  be Login to proceed with subscription ! If you dont have user account, <a routerLink="/auth/signup">please create one !</a></h3>
+            </div>
+            <!-- <div class="modal-footer maxButton justify-content-end ">
+                
+                <button type="button" class="btn btn-secondary okkcss" (click)="ok()">ok</button>
+            </div> -->
+        </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="loader" >
+            
+    <div class="col-md-4 mt-4" *ngFor="let item of lodingcard">
+        <div claSS="cards ">
+        <div  class="listingimg shine ">
+           
+        </div>
+        <div class="containt">
+            <h1 class="listingTital shine "></h1>
+            <p class="listingPara shine"> </p>
+            <button class="Detailbtn shine" >   
+                <a >
+                <!-- {{value }}<span *ngIf="value.length>50">...</span> -->
+                <!-- <p class="td-text" [innerHTML]="value"></p> -->
+            </a>View Detail</button>
+        </div>
+
+    </div>
+</div>
+
+
+</div>

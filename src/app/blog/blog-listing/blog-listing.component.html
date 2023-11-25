@@ -1,0 +1,77 @@
+<!-- <p>blog-listing works!</p> -->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 mt-4 d-flex">
+
+       <input  type="search" placeholder="Search" [(ngModel)]="search_value" class="blogSearch form-control "(keyup)="onkeyup()" >
+            <!-- <i class="fa fa-search searchicon" aria-hidden="true"></i> -->
+            <button class="Searchbtn ml-2" (click)="search()">Search</button>
+        </div>
+        <div class="col-md-8 text-right ">
+            <!-- <h3 class="mb-0 mt-2 mr-3 Categoryclass">Category Name</h3> -->
+            <select id="selectid" [(ngModel)]="chosenMod" (ngModelChange)="categorysearch()"
+                class="from-control selectclass mt-3">
+                <option value="">Select Category</option>
+                <ng-container *ngFor="let player of catData">
+                    <option *ngIf="player.status == 'active'" [value]="player.id_new">
+                        {{player.catName}}
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+
+    </div>
+    <h1 class="text-center hedding">News </h1>
+
+    <div class="">
+        <div class="row">
+            <ng-container *ngFor="let item of faqData">
+                <div class="col-md-4 mt-4" *ngIf="item.status == 'active'">
+                    <div claSS="cards ">
+                        <div>
+                            <img (click)="view(item.id,'active')" src="{{_baseUrl}}{{item?.image}}" class="listingimg " *ngIf="item.image" />
+                            <img  (click)="view(item.id,'active')" src="/assets/img/No image.png" class="listingimg " *ngIf="!item.image" />
+                        </div>
+                        <div class="containt">
+                            <h1 class="listingTital text-truncate">{{item.title}}</h1>
+                            <p class="listingPara ">{{ (item.description.length>70)? (item.description |
+                                slice:0:70)+'...':(item.description) }} </p>
+                            <button class="Detailbtn" (click)="view(item.id,'active')">
+                                <a href="javascript:void(0);" (click)="view(item.id,'active')" title="View FAQ">
+                                    <!-- {{value }}<span *ngIf="value.length>50">...</span> -->
+                                    <!-- <p class="td-text" [innerHTML]="value"></p> -->
+                                </a>View Detail</button>
+                        </div>
+
+                    </div>
+                </div>
+            </ng-container>
+
+
+        </div>
+
+        <div class="row" *ngIf="this.appStateSvc.stateData.loader">
+
+            <div class="col-md-4 mt-4" *ngFor="let item of lodingcard">
+                <div claSS="cards ">
+                    <div class="listingimg shine ">
+
+                    </div>
+                    <div class="containt">
+                        <h1 class="listingTital shine "></h1>
+                        <p class="listingPara shine"> </p>
+                        <button class="Detailbtn shine">
+                            <a>
+                                <!-- {{value }}<span *ngIf="value.length>50">...</span> -->
+                                <!-- <p class="td-text" [innerHTML]="value"></p> -->
+                            </a>View Detail</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

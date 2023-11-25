@@ -1,0 +1,158 @@
+<div class="maindiv">
+    <form [formGroup]="propertyDetails" novalidate (submit)="onSubmit()">
+        <div class="box-content-colapse">
+            <details class="details-comp mb-2" [open]="firstForm">
+                <summary class="summary-colapse">
+                    Property Details
+                </summary>
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Current</th>
+                                <th>Rehabbed</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Property Type</td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="text" formControlName="current_property_type" placeholder="Current"
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.current_property_type.errors" class="invalid-feedback">
+                                        <div *ngIf="f.current_property_type.errors.required">current property type is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="text" formControlName="rehabbed_property_type" placeholder="Rehabbed"
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.rehabbed_property_type.errors" class="invalid-feedback">
+                                        <div *ngIf="f.rehabbed_property_type.errors.required">rehabbed_property_type is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Est. SQFT</td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="number" formControlName="current_est_sqft" placeholder="10000" id="text"
+                                            class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.current_est_sqft.errors" class="invalid-feedback">
+                                        <div *ngIf="f.current_est_sqft.errors.required">current_est_sqft is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="number" formControlName="rehabbed_est_sqft" placeholder="1500" id="text"
+                                            class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.rehabbed_est_sqft.errors" class="invalid-feedback">
+                                        <div *ngIf="f.rehabbed_est_sqft.errors.required">rehabbed_est_sqft is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td># of Beds</td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="number" formControlName="current_no_of_beds" placeholder="10" id="text"
+                                            class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.current_no_of_beds.errors" class="invalid-feedback">
+                                        <div *ngIf="f.current_no_of_beds.errors.required">current_no_of_beds is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="text" formControlName="rehabbed_no_of_beds" placeholder="5"
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.rehabbed_no_of_beds.errors" class="invalid-feedback">
+                                        <div *ngIf="f.rehabbed_no_of_beds.errors.required">rehabbed_no_of_beds is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td># of Baths</td>
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="text" formControlName="current_no_of_baths" placeholder=""
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.current_no_of_baths.errors" class="invalid-feedback">
+                                        <div *ngIf="f.current_no_of_baths.errors.required">current_no_of_baths is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                                
+                                <td>
+
+                                    <div class="form-group mb-0">
+                                        <input type="number" formControlName="rehabbed_no_of_baths" placeholder="2"
+                                            id="text" class="inputclss form-control">
+                                    </div>
+                                    <div *ngIf="submitted && f.rehabbed_no_of_baths.errors" class="invalid-feedback">
+                                        <div *ngIf="f.rehabbed_no_of_baths.errors.required">rehabbed_no_of_baths is
+                                            required</div>
+                                    </div>
+
+                                </td>
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div>
+
+                        <div class="form-group mb-0">
+                            <label heddignclass="btnclass">Indicate Unit mix</label>
+                            <input type="text" formControlName="unit_mix" placeholder="" id="text"
+                                class="inputclss form-control">
+                        </div>
+                        <div *ngIf="submitted && f.unit_mix.errors" class="invalid-feedback">
+                            <div *ngIf="f.unit_mix.errors.required">unit_mix is required</div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+        </div>
+
+        <div class="text-right mr-5 mb-3 ">
+                <button type="submit" class="btn btn-warning " *ngIf="showButton" >Submit</button>
+            
+        </div>
+    </form>
+
+
+
+</div>

@@ -1,0 +1,58 @@
+.heading {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >span {
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+.View_profile {
+    font-size: 18px;
+    margin-bottom: 0;
+    color: #0f134f;
+    font-weight: 600px !important;
+}
+
+.edit-profile-input {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+
+    >img {
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        border: 3px solid #fff;
+        border-radius: 50%;
+    }
+
+    >i {
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+        font-size: 18px;
+        color: #000;
+    }
+}
+
+.container.profilecontainer {
+    max-width: 800px;
+}
+
+.card-header {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formrow h1 {
+    font-size: 18px;
+    font-weight: 500;
+}

@@ -1,0 +1,97 @@
+<!-- <p>signup works!</p> -->
+<div class="container d-flex ">
+    <div class="maindiv "  *ngIf=" formsign ">
+       
+        <div class="text-center mb-3 ">
+            <img src="../../../assets/img/VEStoree-PNG.png" class="logo" alt="">
+        </div>
+        <h2 class="tital text-center mt-3 mb-3 ">SignUp</h2>
+        <p class="ml-5" >Already a member? Welcome back! <span class="spanclss" routerLink="/auth/login">CLICK HERE.</span></p>
+        <form [formGroup]="sigupFrom"  novalidate (submit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <input type="text" placeholder="Enter your First Name" class="form-control fieldclass mb-2" formControlName="firstName" />
+                    <span *ngIf="submitted && f.firstName.errors"class="validclass ">First Name is required  </span>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <input type="text" placeholder="Enter your Last Name" class="form-control fieldclass mb-2" formControlName="lastName" />
+                    <span *ngIf="submitted && f.lastName.errors"class="validclass ">Last Name is required  </span>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <input type="text" placeholder="Enter Email" class="form-control fieldclass mb-2" formControlName="email" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email || f.email.errors?.pattern">Email
+                            is invalid</div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <input type="password" [type]="showPass ? 'text' : 'password'"  placeholder="Enter Password"class="form-control fieldclass mb-2" formControlName="password" />
+                    <i class="fa" (click)="showPass = !showPass"
+                        [ngClass]="{'fa-eye': showPass, 'fa-eye-slash':!showPass}"></i>
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                                    <!-- <div *ngIf="f.password.errors?.pattern">Use 8 or more characters
+                                                        with a mix of letters, numbers & symbols</div> -->
+                                                    <div *ngIf="f.password.errors.minlength">Min Length should be 8
+                                                        character</div>
+                                                </div>                               
+                </div> 
+                <div class="col-md-12 mb-3">
+                    <input type="text" [type]="cshowPass ? 'text' : 'password'" placeholder="Confirm Password"class="form-control fieldclass mb-2" formControlName="confirmpassword" />
+                    <i class="fa" (click)="cshowPass = !cshowPass"
+                        [ngClass]="{'fa-eye': cshowPass, 'fa-eye-slash':!cshowPass}"></i>
+                    <div *ngIf="submitted && f.confirmpassword.errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="f.confirmpassword.errors.required">Confirm Password is
+                                                        required</div>
+                                                    <div *ngIf="f.confirmpassword.errors.confirmMatch">Passwords must
+                                                        match</div>
+                                                </div>
+                </div> 
+                <div class="col-md-12 text-center mx-0" >
+                <button class="form-control login mb-2" (click)="signupUser()"  >SignUp</button>
+            </div>
+            <p  >
+               <input type="checkbox" formControlName="Terms"class="ml-4"> I agree to Revestor <span class="spanclss" routerLink="/trems-condition">Terms of service</span> and <span class="spanclss"  routerLink="/privacy-policy">Privacy Policy</span></p>
+               <span *ngIf="submitted && f.Terms.errors" class="validclass ">Terms-condition field is required</span>
+            </div>
+           
+        </form>
+    </div>
+    </div>
+
+
+
+
+    
+    <div class="modal d-block" *ngIf=" statusOfRes == true " >
+        <!-- <div class="modal-overlay overlayNew" (click)="cardModal=false"></div> -->
+        <div class="modal-dialog  dateModal" role="document" >
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                   
+                    <button type="button" class="close" routerLink="/auth/login" >
+                        <span aria-hidden="true">&times;</span> </button>
+                </div>    
+                    <div class="modal-body">  
+                        <div>
+                            <img src="../../../assets/img/greentik.png" class="greentik">
+                        </div>
+                        <h3 Class="tital">Glad you'll Be Joining Us! You're<br> Almost There</h3>
+                        <h3 class="paraclass">
+                            <b>Next Step:</b> Verify Your Email. We've Sent you an email. <br>Click the Link in the Email to Continue setting up your <br>account 
+                        </h3>
+
+                        <div>
+                            <button type="button" class="btn btn-secondary okkbtn" routerLink="/auth/login"  >Ok</button>
+                        <h3 class="mt-2">Don't receive an email ?<a (click)='resent()'><span class="click  ">Click Here</span></a> </h3>
+                        </div>
+                    </div>
+                    <div class="modal-footer maxButton justify-content-start">
+                        
+                        
+                    </div>   
+            </div>
+            </div>
+            </div>

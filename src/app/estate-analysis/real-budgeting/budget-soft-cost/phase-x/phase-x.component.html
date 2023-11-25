@@ -1,0 +1,70 @@
+<form [formGroup]="propertySoftPhase_x" novalidate (submit)="onSubmit()">
+    <table class="table table-bordered">
+        <thead class="">
+            <tr class="">
+                <th>Phase X -
+                </th>
+                <th>Labor</th>
+                <th>Materials</th>
+                <th>Time to
+                    Complete</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Final Clean Out</td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="final_clean_out_labor_cost" class="" placeholder="$"
+                            id="text" class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.final_clean_out_labor_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.final_clean_out_labor_cost.errors.required">final_clean_out_labor_cost is required
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="number" formControlName="final_clean_out_material_cost" class="" placeholder="$"
+                            id="text" class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.final_clean_out_material_cost.errors" class="invalid-feedback">
+                        <div *ngIf="f.final_clean_out_material_cost.errors.required">final_clean_out_material_cost is
+                            required</div>
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="final_clean_out_time_to_complete" class="" placeholder=""
+                            id="text" class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.final_clean_out_time_to_complete.errors" class="invalid-feedback">
+                        <div *ngIf="f.final_clean_out_time_to_complete.errors.required">final_clean_out_time_to_complete
+                            is required</div>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div class="form-group mb-0">
+                        <input type="text" formControlName="final_clean_out_notes" class="" placeholder="" id="text"
+                            class="inputclss form-control">
+                    </div>
+                    <div *ngIf="submitted && f.final_clean_out_notes.errors" class="invalid-feedback">
+                        <div *ngIf="f.final_clean_out_notes.errors.required">final_clean_out_notes is required</div>
+                    </div>
+
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</form>

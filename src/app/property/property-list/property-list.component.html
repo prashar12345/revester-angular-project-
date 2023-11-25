@@ -1,0 +1,145 @@
+<div class="container mt-5">
+  <div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="input-group rounded">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" />
+          <span class="input-group-text border-0 serchbtnclss" id="search-addon">
+            <i class="fa fa-search " aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="sorting">
+          <select name="" id="" class="formcontrol sortingclss">
+            <option value="">--Sort by--</option>
+            <option *ngFor="let item of items" value="{{item.name}}">{{item.name}}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="col-md-2 px-0">
+        <div ngbDropdown class="d-block tab">
+          <button type="button" class="btn  selectboxclss w-100" id="dropdownBasic1" ngbDropdownToggle>My Deals</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Action - 1</button>
+            <button ngbDropdownItem>Another Action</button>
+            <button ngbDropdownItem>Something else is here</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 px-0">
+        <div ngbDropdown class="d-block tab ">
+          <button type="button" class="btn  selectboxclss w-100" id="dropdownBasic1" ngbDropdownToggle>Budget
+            Templates</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Action - 1</button>
+            <button ngbDropdownItem>Another Action</button>
+            <button ngbDropdownItem>Something else is here</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="dropdownclss d-flex p-3">
+        <div class="col-mt-2 mt-3 mb-3">
+          <div ngbDropdown class="d-block tab ml-3">
+            <select class="parameter " class="dropdown-toggle btn selectboxclss w-100" name="propertyType"
+              id="dropdownBasic1">
+              <option value="" class="optionclss">Investor Type</option>
+              <option value="Rehab - Flipper">Rehab - Flipper</option>
+              <option value="Apt. Building - Landlord">Apt. Building - Landlord</option>
+              <option value="Land/Lots - Developer">Land/Lots - Developer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-mt-2 mt-3 mb-3">
+          <div ngbDropdown class="d-block tab ml-2">
+            <select class="parameter " class="btn  selectboxclss w-100" name="propertytype" id="propertytype">
+              <option value="" class="optionclss">Property State</option>
+              <option *ngFor="let item of allPlanState" value="{{item.id}}" class="optionclss">{{item.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-mt-2 mt-3 mb-3">
+          <div ngbDropdown class="d-block tab ml-2">
+            <button type="button" class="btn  selectboxclss w-100" id="dro  pdownBasic1" ngbDropdownToggle>Archived
+              Deals</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem>Action - 1</button>
+              <button ngbDropdownItem>Another Action</button>
+              <button ngbDropdownItem>Something else is here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="myTabContent" *ngIf="isDataTableReady">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="content-section">
+        <div class="content-body inner-container bg-white text-muted">
+          <ngx-datatable class="bootstrap" [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="50" [scrollbarV]="false" [rows]="propertyData" [columns]="columns" [externalPaging]="true"
+            [reorderable]="false" [count]="totalItems" [limit]="10" (page)="setPage($event)" [offset]="page -1 ">
+            <ngx-datatable-column name="Identifier" prop="identifier">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <a href="javascript:void(0);" class="text-primary" (click)="viewDetail(value,'active')">
+                  {{value}}
+                </a>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Address" prop="address">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Coordinates" prop="location">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                {{ value }}
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-3" *ngIf="this.appStateSvc.stateData.loader">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="w-100" *ngFor="let items of this.appStateSvc.stateData.shineItem">
+
+        <tr>
+          <th class="">
+            <div class="shine loaderclss">
+
+            </div>
+          </th>
+          <th class="">
+            <div class="shine loaderclss">
+
+            </div>
+          </th>
+          <th class="">
+            <div class="shine loaderclss">
+
+            </div>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

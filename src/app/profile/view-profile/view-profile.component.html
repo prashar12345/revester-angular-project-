@@ -1,0 +1,45 @@
+<div class="container profilecontainer py-3 mt-5">
+    <div class="card shadow">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="View_profile font-weight-bold">View Profile</h5>
+
+            <span class="material-icons" routerLink="/profile/edit" ngbTooltip="Edit Profile">
+                edit
+            </span>
+        </div>
+        <div class="card-body">
+            <div class="form-row">
+                <div class="col-md-12 text-center mb-3">
+                    <label class="edit-profile-input">
+                        <img src="{{userImg(data?.image)}}" class="shadow" />
+
+                        <i class="material-icons">
+                            border_color
+                        </i>
+                        <input type="file" (change)="uploadImage($event)"
+                            accept="image/jpg, image/jpeg, image/png,.png,.jpg,.jpeg" [(ngModel)]="imageBase"
+                            class="d-none" />
+                    </label>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="">First Name</label>
+                    <div class="text">{{data?.firstName}}</div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="">Last Name</label>
+                    <div class="text">{{data?.lastName}}</div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="">Email</label>
+                    <div class="text">{{data?.email}}</div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="">Role</label>
+                    <div class="text">{{data?.role}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

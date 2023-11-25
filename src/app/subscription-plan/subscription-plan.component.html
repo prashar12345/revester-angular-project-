@@ -1,0 +1,745 @@
+<div>
+
+    <div class="row m-0">
+        <div class="col-md-12 text-center mainclass">
+            <!-- <img src="../../assets/img/price.jpg"> -->
+            <div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="row cardclass">
+
+        <div class="col-md-4 mb-4">
+            <ng-container *ngFor="let item of faqData">
+
+                <div class="card mt-4" *ngIf=" item.planType == 'free' && item.status == 'active' ">
+
+
+
+
+
+                    <div class="containt ">
+
+
+                        <div class="row dataclass mx-0">
+                            <div class="ribbon">
+                                <div class="wrap">
+                                    <span class="ribbon6">{{item.price }}</span>
+                                </div>
+                            </div>
+                            <div class="mx-auto mt-5">
+                                <img src="../../assets/img/email.svg" class="listingimg " />
+                            </div>
+                            <div class="col-md-12 ">
+                                <h1 class="listingTital text-center ">{{item.name}}</h1>
+
+                                
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="row border-bottom mb-2" *ngFor="let item of item.features">
+
+                                    <div class="col-md-6">
+                                        <p class="listingPara ">{{item.name}}</p>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <p class="listingPara ">{{item.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center col-md-12 mt-3">
+
+                              
+                                <button class="subsbtn  mb-4" ng (click)="openCardModal(item)">Subscription</button>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </ng-container>
+
+
+        </div>
+
+        <div class="col-md-4 mb-6 ">
+            <ng-container *ngFor="let item of faqData">
+
+                <div class="card mt-4" *ngIf=" item.planType == 'paid' && item.status == 'active'">
+
+                    <div class="containt">
+                        <div class="row dataclass mx-0">
+                            <div class="ribbon">
+                                <div class="wrap">
+                                    <span class="ribbon6">{{item.price | currency}}</span>
+                                </div>
+                            </div>
+                            <div class="mx-auto mt-5">
+                                <img src="../../assets/img/email.svg" class="listingimg " />
+                            </div>
+                            <div class="col-md-12">
+                                <h1 class="listingTital text-center">{{item.name}}</h1>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="row  border-bottom mb-2" *ngFor="let item of item.features">
+                                    <div class="col-md-6">
+                                        <p class="listingPara ">{{item.name}}</p>
+                                    </div>
+                                 
+                                    <div class="col-md-6">
+                                        <p class="listingPara ">{{item.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center col-md-12 mt-3">
+
+                               
+                                <button class="subsbtn mb-4" (click)="openCardModal(item)">Subscription</button> <br>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </ng-container>
+
+        </div>
+
+
+    </div>
+</div> -->
+
+<div class="modal d-block" *ngIf="cardModal">
+    <div class="modal-overlay overlayNew"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <form [formGroup]="addcardform" novalidate (submit)="onSubmit()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="mb-0">Enter Payment Details</h3>
+                    <button type="button" class="close" (click)="close_cardModal()">
+                        <span aria-hidden="true">&times;</span> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Name on Card*" formControlName="ownerName"
+                                class="form-control mb-3 mt-0">
+                        </div>
+                        <div *ngIf="submitted && f.ownerName.errors" class="invalid-feedback">
+                            <div *ngIf="f.ownerName.errors.required" class="ml-3 mb-3">Name is required</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx"                                     mask="0000-0000-0000-0000" formControlName="cardNumber"
+                                class="form-control mb-3" maxlength="19">
+                        </div>
+                        <div *ngIf="submitted && f.cardNumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.cardNumber.errors.required" class="ml-3 mb-3">Card number is required</div>
+                            <div *ngIf="f.cardNumber.errors.cardNumber || f.cardNumber.errors.pattern">Only Numeric is
+                                Valid</div>
+                            <div *ngIf="f.cardNumber.errors.cardNumber || f.cardNumber.errors.minlength">Card number
+                                must be 14 digit</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" maxlength="2" placeholder="MM*" formControlName="expMonth"
+                                class="form-control mb-3">
+                            <div *ngIf="submitted && f.expMonth.errors" class="invalid-feedback">
+                                <div *ngIf="f.expMonth.errors.required" class="mb-3">Expiry Month is required</div>
+                                <div *ngIf="f.expMonth.errors.expMonth || f.expMonth.errors.pattern" class="mb-3">Only
+                                    Numeric is Valid</div>
+                                <div *ngIf="f.expMonth.errors.expMonth || f.expMonth.errors.minlength" class="mb-3">
+                                    Expiry Month must be 2 digit</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" maxlength="4" placeholder="YYYY*" formControlName="expYear"
+                                class="form-control mb-3">
+                            <div *ngIf="submitted && f.expYear.errors" class="invalid-feedback">
+                                <div *ngIf="f.expYear.errors.required">Expiry Year is required</div>
+                                <div *ngIf="f.expYear.errors.expYear || f.expYear.errors.pattern">Only Numeric is Valid
+                                </div>
+                                <div *ngIf="f.expYear.errors.expYear || f.expYear.errors.minlength">Expiry Year must be
+                                    4 digit</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" maxlength="3" placeholder="CVC*" formControlName="cvc"
+                                class="form-control mb-3">
+                            <div *ngIf="submitted && f.cvc.errors" class="invalid-feedback">
+                                <div *ngIf="f.cvc.errors.required">CVC is required</div>
+                                <div *ngIf="f.cvc.errors.cvc || f.cvc.errors.pattern">Only Numeric is Valid</div>
+                                <div *ngIf="f.cvc.errors.cvc || f.cvc.errors.minlength">Expiry CVC must be 3 digit</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col">
+                            <input type="text" placeholder="Biling Address*"formControlName="address"  class="form-control mb-3">
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="paybtnclss mb-2" (click)="savecard()">Pay</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal d-block" *ngIf="card_added == true ">
+    <div class="modal-overlay overlayNew" (click)="card_added=false"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="card_added=false">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body text-center ">
+                <h3 class="hedding mb-3">Card Added Successfully !</h3>
+                <p class="paraclass">we are delighted to inform you we received<br> your Card.</p>
+                <h3 class="hedding mt-3">Thanks !</h3>
+            </div>
+            <div class="modal-footer maxButton justify-content-end ">
+
+                <button type="button" class="btn btn-secondary Close" (click)="click_added()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal d-block" *ngIf="paymentModal == true ">
+    <div class="modal-overlay overlayNew" (click)="paymentModal=false"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="paymentModal=false">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body text-center pb-0 pl-0">
+                <h3 class="hedding mb-3">Payment Successfully !</h3>
+                <p class="paraclass">we are delighted to inform you we received<br> your payment.</p>
+                <h3 class="hedding mt-3">Thanks !</h3>
+            </div>
+            <div class="modal-footer maxButton justify-content-end ">
+
+                <button type="button" class="btn btn-secondary Close" (click)="clickdata()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="payment-loader-container" *ngIf="loaderpayment">
+    <div class="payment-loader">
+        <div class="payment-circle">
+            <div class="payment-inner-circle">
+            </div>
+            <h1>
+                $
+            </h1>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="modal d-block" *ngIf="addcardModal">
+    <div class="modal-overlay overlayNew" (click)="addcardModal=false"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-bottom">
+                <h3>Choose A Card For Payment</h3>
+                <button type="button" class="close" (click)="addcardModal=false">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-6 border-right">
+                        <input type="radio" id="css" name="fav_language" value="CSS" class="radiobtn">
+                        <div class="container preload">
+                            <div class="creditcard">
+                                <div class="front">
+                                    <div id="ccsingle"></div>
+                                    <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 750 471"
+                                        style="enable-background:new 0 0 750 471;" xml:space="preserve">
+                                        <g id="Front">
+                                            <g id="CardBackground">
+                                                <g id="Page-1_1_">
+                                                    <g id="amex_1_">
+                                                        <path id="Rectangle-1_1_" class="lightcolor grey" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                                            C0,17.9,17.9,0,40,0z" />
+                                                    </g>
+                                                </g>
+                                                <path class="darkcolor greydark"
+                                                    d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
+                                            </g>
+                                            <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber"
+                                                class="st2 st3 st4">0123 4567 8910 1112</text>
+                                            <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname"
+                                                class="st2 st5 st6">JOHN DOE</text>
+                                            <text transform="matrix(1 0 0 1 54.1074 389.8793)"
+                                                class="st7 st5 st8">cardholder name</text>
+                                            <text transform="matrix(1 0 0 1 479.7754 388.8793)"
+                                                class="st7 st5 st8">expiration</text>
+                                            <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card
+                                                number</text>
+                                            <g>
+                                                <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire"
+                                                    class="st2 st5 st9">01/23</text>
+                                                <text transform="matrix(1 0 0 1 479.3848 417.0097)"
+                                                    class="st2 st10 st11">VALID</text>
+                                                <text transform="matrix(1 0 0 1 479.3848 435.6762)"
+                                                    class="st2 st10 st11">THRU</text>
+                                                <polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9 		" />
+                                            </g>
+                                            <g id="cchip">
+                                                <g>
+                                                    <path class="st2"
+                                                        d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+                                                        c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z" />
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <rect x="82" y="70" class="st12" width="1.5" height="60" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="167.4" y="70" class="st12" width="1.5" height="60" />
+                                                    </g>
+                                                    <g>
+                                                        <path class="st12"
+                                                            d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+                                                            c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
+                                                            C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
+                                                            c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
+                                                            c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="82.8" y="82.1" class="st12" width="25.8"
+                                                            height="1.5" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="82.8" y="117.9" class="st12" width="26.1"
+                                                            height="1.5" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="142.4" y="82.1" class="st12" width="25.8"
+                                                            height="1.5" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="142" y="117.9" class="st12" width="26.2"
+                                                            height="1.5" />
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                        <g id="Back">
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" maxButton justify-content-end text-right mb-3">
+
+                            <button type="button" class="btn btn-secondary mt-4" (click)="addcardModal=false">Add
+                                Card</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <button class="pay" (click)="openLoginModal()">Pay</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div> -->
+
+<!--   Dynamic card       -->
+
+
+<div class="modal d-block" *ngIf="addcardModal_new">
+    <div class="modal-overlay overlayNew" (click)="addcardModal_new=false"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-bottom">
+                <h3>Choose A Card For Payment</h3>
+                <button type="button" class="close" (click)="addcardModal_new=false">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-md-6 border-right cardstyl mt-3" *ngFor="let item of card_details ">
+                        <!-- <label for="{{item.name}}">{{item.name}}</label> -->
+                        <input type="radio" (change)="onItemChange(item.cardId)" [(ngModel)]="item.cardId"
+                            class="card_default btnredio" [checked]="item.isDefault" name="options" [id]="item.cardId"
+                            [value]="item.cardId">
+                        <div class="container preload">
+                            <div class="creditcard">
+                                <div class="front">
+                                    <div id="ccsingle"></div>
+                                    <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 750 471"
+                                        style="enable-background:new 0 0 750 471;" xml:space="preserve">
+                                        <g id="Front">
+                                            <g id="CardBackground">
+                                                <g id="Page-1_1_">
+                                                    <g id="amex_1_">
+                                                        <path id="Rectangle-1_1_" class="lightcolor grey" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                                            C0,17.9,17.9,0,40,0z" />
+                                                    </g>
+                                                </g>
+                                                <path class="darkcolor greydark"
+                                                    d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
+                                            </g>
+                                            <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber"
+                                                class="st2 st3 st4">XXXX XXXX XXXX {{item.last4}}</text>
+                                            <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname"
+                                                class="st2 st5 st6">{{item.name}}</text>
+                                            <text transform="matrix(1 0 0 1 54.1074 389.8793)"
+                                                class="st7 st5 st8">cardholder name</text>
+                                            <text transform="matrix(1 0 0 1 479.7754 388.8793)"
+                                                class="st7 st5 st8">expiration</text>
+                                            <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card
+                                                number</text>
+                                            <g>
+                                                <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire"
+                                                    class="st2 st5 st9">{{item.exp_month}}/{{item.exp_year}}</text>
+                                                <text transform="matrix(1 0 0 1 479.3848 417.0097)"
+                                                    class="st2 st10 st11">VALID</text>
+                                                <text transform="matrix(1 0 0 1 479.3848 435.6762)"
+                                                    class="st2 st10 st11">THRU</text>
+                                                <polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9 		" />
+                                            </g>
+                                            <g id="cchip">
+                                                <g>
+                                                    <path class="st2"
+                                                        d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+                                                        c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z" />
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <rect x="82" y="70" class="st12" width="1.5" height="60" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="167.4" y="70" class="st12" width="1.5" height="60" />
+                                                    </g>
+                                                    <g>
+                                                        <path class="st12"
+                                                            d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+                                                            c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
+                                                            C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
+                                                            c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
+                                                            c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="82.8" y="82.1" class="st12" width="25.8"
+                                                            height="1.5" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="82.8" y="117.9" class="st12" width="26.1"
+                                                            height="1.5" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="142.4" y="82.1" class="st12" width="25.8"
+                                                            height="1.5" />
+                                                    </g>
+                                                    <g>
+                                                        <rect x="142" y="117.9" class="st12" width="26.2"
+                                                            height="1.5" />
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                        <g id="Back">
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class=" maxButton justify-content-end text-right mb-3">
+                    <button type="button" class="btn btn-secondary  mt-0 mr-1" (click)="save_card_new()">Add
+                        Card</button>
+                    <button class="pay" (click)="Paynow()">Pay</button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal d-block" *ngIf="loginModal">
+    <div class="modal-overlay overlayNew" (click)="loginModal=false"></div>
+    <div class="modal-dialog  dateModal" role="document">
+        <div class="modal-content loginpopup">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="loginModal=false">
+                    <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body">
+                <h3 class="TEXTCLSSCSSS">You must be Login to proceed with subscription ! If you dont have user account,
+                    <a routerLink="/auth/signup">please create one !</a>
+                </h3>
+            </div>
+            <div class="modal-footer maxButton justify-content-end ">
+
+                <button type="button" class="btn btn-secondary okkcss" (click)="loginModal=false">ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- 
+<div class="row">
+    <img src="../../assets/img/price.jpg">
+</div> -->
+
+<ng-container *ngIf="this.appStateSvc.stateData.loader">
+
+    <div class=" price">
+        <div class=" container">
+            <div class=" d-flex  cardclass ">
+                <div class="shine features  inner_price">
+                    <h3></h3>
+                    <ng-container>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+                        <div class="shine span white">
+                            <p></p>
+                        </div>
+
+                    </ng-container>
+
+                </div>
+
+                <ng-container>
+                    <div class="shine ml-2 white">
+
+                        <h3></h3>
+
+                        <div class="shine Premium white">
+                            <h2></h2>
+                            <h6></h6>
+                        </div>
+
+
+                        <div>
+
+                            <p></p>
+                            <p></p>
+                        </div>
+
+
+
+                    </div>
+                </ng-container>
+
+
+
+                <ng-container>
+                    <div class="shine month ml-2 white">
+
+
+                        <h3></h3>
+                        <div class="shine Premium white">
+                            <h2> </h2>
+                            <h6></h6>
+                        </div>
+                        <div>
+                            <p></p>
+                            <p></p>
+                        </div>
+
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<div class="price" *ngIf="!this.appStateSvc.stateData.loader">
+    <div class="container">
+        <div class="table-responsive">
+            <div class="d-flex cardclass">
+                <div class="features  inner_price">
+                    <h3>Plan Features</h3>
+                    <ng-container *ngFor="let item of PlanTypedata">
+                        <div class="span">
+                            <p>{{item.description}}<i class="fa fa-question-circle ml-1 " title="{{item.name}}"
+                                    aria-hidden="true"></i></p>
+
+                        </div>
+
+                    </ng-container>
+
+                </div>
+
+                <ng-container *ngFor="let item of freePlanData ">
+                    <div class="year ml-2 inner_price" *ngIf="item.status == 'active'">
+
+                        <h3>{{item.name}}</h3>
+
+                        <div class="Premium">
+                            <h2>{{item.price }}</h2>
+                            <h6>{{item.planInterval}}</h6>
+                        </div>
+
+
+                        <div *ngFor="let item of item.features">
+
+                            <p *ngIf="item.checked == true">Yes</p>
+                            <p *ngIf="item.checked == false"><i class="fa fa-times" aria-hidden="true"></i></p>
+                        </div>
+
+                        <div class="cart-btn">
+                            <button class="btn " *ngIf="this.user == null || item.isBooked == null"
+                                (click)=" openCardModal(item)">Buy</button>
+                            <button class="btn " *ngIf="item.isBooked == true" [disabled]="item.isBooked == true"
+                                (click)=" openCardModal(item)">Subscribed</button>
+                            <button class="btn " *ngIf="item.isBooked == false"
+                                (click)=" openCardModal(item)">Upgrade</button>
+                        </div>
+
+                    </div>
+                </ng-container>
+
+
+
+                <ng-container *ngFor="let item of paidPlandata">
+                    <div class="month ml-2 inner_price" >
+
+
+                        <h3>{{item.name}}</h3>
+                        <div class="Premium" *ngIf="item.status == 'active'">
+                            <h2>{{item.price | currency}}</h2>
+                            <h6>{{item.planInterval}}</h6>
+                        </div>
+                        <div *ngFor="let item of item.features">
+                            <p *ngIf="item.checked == true">Yes</p>
+                            <p *ngIf="item.checked == false"><i class="fa fa-times" aria-hidden="true"></i></p>
+                        </div>
+                        <div class="cart-btn">
+                            <button class="btn " *ngIf="this.user == null || item.isBooked == null"
+                                (click)=" openCardModal(item)">Buy</button>
+                            <button class="btn " *ngIf="item.isBooked == true" [disabled]="item.isBooked == true"
+                                (click)=" openCardModal(item)">Subscribed</button>
+                            <button class="btn " *ngIf="item.isBooked == false"
+                                (click)=" openCardModal(item)">Upgrade</button>
+                        </div>
+
+                    </div>
+                </ng-container>
+                <ng-container *ngFor="let item of GoldPlan">
+                    <div class="forever ml-2 inner_price" *ngIf="item.status == 'active'">
+
+
+                        <h3>{{item.name}}</h3>
+                        <div class="Premium">
+                            <h2>{{item.price | currency}}</h2>
+                            <h6>{{item.planInterval}}</h6>
+                        </div>
+                        <div *ngFor="let item of item.features">
+                            <p *ngIf="item.checked == true">Yes</p>
+                            <p *ngIf="item.checked == false"><i class="fa fa-times" aria-hidden="true"></i></p>
+                        </div>
+                        <div class="cart-btn">
+                            <button class="btn " (click)=" openCardModal(item)">Subscription</button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+
+    </div>
+</div>

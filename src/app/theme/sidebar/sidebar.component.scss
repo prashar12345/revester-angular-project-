@@ -1,0 +1,86 @@
+.mainSidebar{
+    width: 19%;
+    background-color: #123856;
+    height: 100vh;
+    overflow: auto;
+    padding: 15px;
+    display: inline-block;
+}
+
+.sidebarProfile{
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
+}
+
+button.openbtn {
+    display: none;
+}
+.clientName{
+    color:#fff;
+    font-size: 16px;
+    font-weight: 7000;
+    margin-bottom: 10px;
+}
+
+.clientEmail{
+    color: #fff;
+}
+
+.sidebarNav{
+margin-top: 20px;
+ > a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 4px;
+
+    mat-icon{
+        margin-right: 10px;
+    }
+
+    &:hover, &.active{
+        background-color: #ffffff4f;
+        
+    }
+ }
+}
+
+
+
+@media(max-width:768px){
+    .mainSidebar{
+        width: 100%;
+        height: auto;
+        // position: absolute;
+        // left: 0;
+        // z-index: 9;
+    }
+
+    button.openbtn {
+        display: block;
+        background: #123856;
+        color: #fff;
+        font-size: 21px;
+        border: none;
+        border-radius: inherit;
+    }
+
+    .sidebarNav{
+        display: none;
+        &.active{
+            display: block;
+        }
+    }
+}

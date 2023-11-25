@@ -1,0 +1,29 @@
+<div class="mainSidebar mt-3">
+    <div id="main">
+        <button class="openbtn" (click)="openNav()">☰</button>  
+       
+      </div>
+    <article class="sidebarNav" [ngClass]="{'active': toggle}">
+        <a routerLinkActive='active' routerLink="/dashboard">
+            <mat-icon aria-hidden="false">dashboard</mat-icon>
+            Dashboard
+        </a>
+      
+        <a routerLinkActive='active' routerLink="/dashboard/plan" >
+            <mat-icon aria-hidden="false">newspaper</mat-icon>
+            My Plan
+        </a>
+        <a routerLinkActive='active' routerLink="/dashboard/transaction" >
+            <mat-icon aria-hidden="false">newspaper</mat-icon>
+            Transaction
+        </a>
+        <a routerLinkActive='active' routerLink="/dashboard/property-view" >
+            <mat-icon aria-hidden="false">home</mat-icon>
+            Property View
+        </a>
+        <a routerLinkActive='active' routerLink="/comingsoon" >
+            <mat-icon aria-hidden="false">home</mat-icon>
+            Total Spend Time
+        </a>
+    </article>
+</div>

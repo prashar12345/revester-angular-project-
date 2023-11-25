@@ -1,0 +1,179 @@
+.cards {
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+.containt {
+    padding: 11px 29px;
+}       
+
+.listing{
+    color: gray;
+}
+.priceclass{
+    color:
+        #F08519;
+    
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #f0851a;
+    border-color: #f0851a;
+}
+
+.heding {
+    font-weight: 500;
+}
+
+.card-header {
+    background: none;
+}
+.searchbtn{
+    color: #fff;
+    background-color: #f0851a;
+    border-color: #f0851a;
+    padding: 11px 14px;
+    margin-left: -2px;
+}
+i.fa.fa-times {
+    position: absolute;
+    top: 25px;
+    right: 88px;
+    color: #808080ab;
+}
+.searchbtn:hover{
+    color:#000;
+
+}
+thead.thead.theadcss {
+    color: #15415d;
+  
+}
+button#dropdownBasic1 {
+    border: 2px solid #f4a75a;
+    border-radius: 21px;
+}
+
+.container {
+    height: calc(100% - 100px);
+}
+button#dropdownBasic1:hover {
+    background: #f4a75a;
+    color: #fff;
+}
+.serchbtnclss {
+    background: #15415d;
+    color: #ffff;
+}
+.selectbox_clss{
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.36);
+    box-sizing: border-box;
+    border-radius: 29px;
+    padding: 15px 20px;
+
+}
+
+
+button#dropdownBasic1 {
+    color: black;
+}
+.sortingclss {
+    padding: 8px 11px;
+    border: 2px solid #15415d;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+
+.ngx-pagination {
+    background: #123856;
+    color: #fff;
+    padding: 8px 13px;
+}
+
+select.formcontrol.ng-pristine.ng-valid.ng-touched.shoting {
+    padding: 8px 8px;
+}
+// .Find_Property {
+//     background: #F08519;
+//     border: none;
+//     color: #000;
+//     border-radius: 30px ;
+//     padding: 8px 19px;
+//     font-weight: 500;
+//     box-shadow: inset 0px 2px 5px 0px #0000006b;
+// }
+
+// input.searchclass.from-control {
+//     border-radius: 30px         ;
+//     padding: 8px 88px;
+//     font-weight: 500;
+//     border: none;
+    
+// }
+button.editbtn {
+    background: #123856;
+    border: none;
+    color: #fff;
+    border-radius: 11px;
+}
+
+.table th, .table td {
+    width: 22%;
+}
+.pages{
+    // text-align: center !important;
+    text-align: end !important;
+}
+button.deletebtn {
+    background: red;
+    border: none;
+    color: #fff;
+    border-radius: 11px;
+}
+.Searchbtn{
+    background: #F08519;
+    border: none;
+    color: #fff;
+    border-radius: 12px 0px;
+    padding: 8px 19px;
+    font-weight: 500;
+    box-shadow: inset 0px 2px 5px 0px #0000006b;
+}
+
+.blogSearch{
+    border-radius: 12px 0px;
+}
+i.fa.fa-search.searchicon {
+    position: absolute;
+    right: 117px;
+    top: 11px;
+    font-size: 12px;
+}
+.shine{
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+    min-height: 14px;
+    border-radius: 5px;
+    color: transparent !important;
+  }
+  
+  strong.shine{
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .listingimg.shine{
+      height: 263px;
+
+  }
+  
+  
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }

@@ -1,0 +1,104 @@
+.heading{
+    font-size: 20px;
+    font-weight: 600;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > span{
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+
+.edit-profile-input{
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    
+    >img{
+        height: 80px;
+        width:80px;
+        object-fit: cover;
+        border:3px solid #fff;
+        border-radius: 50%;
+    }
+    
+    >i{
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+        font-size: 18px;
+        color: #000;
+    }
+}
+.container.profilecontainer{
+    max-width: 800px;
+}
+
+.card-header{
+    h5{
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 0;
+        color: #0f134f;
+    }
+
+    >a{
+        font-weight: 500;
+    }
+}
+.flxRow {
+    align-items: center;
+}
+.flxRow button {
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+h5.card-header.topRow {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f134f;
+}
+.edit button {
+    font-size: 12px;
+    font-weight: 500;
+}
+.edit {
+    border-top: 1px solid #cec7c7;
+}
+.card-body.image img {
+    width: 100px;
+}
+.buttonCard button {
+    font-size: 12px;
+    font-weight: 500;
+}
+.formrow h1 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f134f;
+}
+.formrow p {
+    font-size: 12px;
+}
+h4.card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f134f;
+}
+.edit h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f134f;
+}
+h2.headingRow {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f134f;
+}
+.card-header{
+    background: #fff;
+}

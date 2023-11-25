@@ -1,0 +1,89 @@
+<!-- <div class="input-group mt-4 mb-3">
+  <div class="form-outline">
+    <input type="search" id="form1" class="form-control" placeholder="Search"/>
+   
+  </div>
+  <button type="button" class="btn btn-primary">
+    <i class="fa fa-search"></i>
+  </button>
+</div> -->
+   
+
+
+<h1 class="mt-3 heding">Plan</h1>
+<div class="tab-content" id="myTabContent" *ngIf="!this.appStateSvc.stateData.loader">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="content-section">
+        <div   class="content-body inner-container bg-white text-muted">
+          <ngx-datatable class="bootstrap" [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="50" [scrollbarV]="false" [rows]="faqData_isBooked" [columns]="columns" [limit]="10" [reorderable]="false"
+            (page)="setPage($event)">
+
+            <ngx-datatable-column name="Plan Name" prop="name" >
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+                <!-- <a href="javascript:void(0);" class="link"  title="View Content"></a> -->
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Price" prop="price">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                {{ value }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Plan Interval" prop="planInterval">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Status" prop="status">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Action" >
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                 <button class="pay" [routerLink]="['/subscriptionplan']">Upgrade</button>
+                </ng-template>
+              </ngx-datatable-column>
+          </ngx-datatable>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+  <div class="row shine" *ngIf="this.appStateSvc.stateData.loader">
+    <div class="col-md-12 shine">
+      <table class="table shine">
+        <thead class="thead theadcss shine">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <th scope="col">Action</th>
+
+
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of this.appStateSvc.stateData.shineItem">
+          <tr >
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div *  class="pages shine">
+        <pagination-controls  class="paginationclss shine"></pagination-controls>
+      </div>
+
+    </div>
+  </div> 

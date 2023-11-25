@@ -1,0 +1,72 @@
+.mainHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    align-items: center;
+    // position:sticky;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    top:0;
+}
+
+.navbar-nav{
+    align-items: center;
+    .nav-item{
+        > a{
+            font-weight: 500;
+            font-size: 16px;
+            color: #013856d4 ;
+            cursor: pointer;
+
+            &.nav-icon{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.headerProfile{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+
+
+
+.userDropdown{
+    .btn{
+        padding: 0;
+        border:0;
+        background-color: transparent;
+        box-shadow: none !important;
+        font-weight: 600;
+        color: #000;
+        &::after{
+            content: none;
+        }
+    }
+
+    .dropdown-menu{
+        left: initial !important;
+        right: 0;
+    }
+}
+
+.logo{
+    width: 100%;
+    max-width: 220px;
+}
+
+.nullheader{
+height: 85px;
+}
+
+.navbar-nav .nav-item > a:hover{
+    color: #F08519;
+
+}
+
